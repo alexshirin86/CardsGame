@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketVip.cs
 //  Implementation of the Class MarketVip
-//  Created on:      29-май-2021 20:58:08
+//  Created on:      29-май-2021 21:09:18
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -18,6 +18,7 @@ namespace Model {
 
 		private int disscount;
 
+		
 
 		/// 
 		/// <param name="account"></param>
@@ -25,6 +26,7 @@ namespace Model {
 
 			Trash trash = new Trash();
 			Account = account;
+			Console.WriteLine("Магазин для вип игроков");
 		}
 
 		public override void ShowItems(){

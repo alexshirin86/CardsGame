@@ -37,12 +37,7 @@ namespace CardsGame
                             Console.WriteLine("Попробуйте еще раз или введите exit для выхода.");
                         }
                         break;
-                } 
-                
-                if (logining)
-                {
-                     Console.WriteLine($"Добро пожаловать, {name}!");
-                }
+                }               
                 
             } while (!logining);
 

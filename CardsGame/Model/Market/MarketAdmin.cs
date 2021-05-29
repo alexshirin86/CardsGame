@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketAdmin.cs
 //  Implementation of the Class MarketAdmin
-//  Created on:      29-май-2021 20:58:09
+//  Created on:      29-май-2021 21:09:19
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -24,6 +24,7 @@ namespace Model {
 		public MarketAdmin(Account account){
 
 			Account = account;
+			Console.WriteLine("Магазин для администратора");
 		}
 
 		public override void ShowItems(){

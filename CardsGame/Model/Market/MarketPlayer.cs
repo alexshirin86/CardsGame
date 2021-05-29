@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketPlayer.cs
 //  Implementation of the Class MarketPlayer
-//  Created on:      29-май-2021 20:58:09
+//  Created on:      29-май-2021 21:09:18
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -18,9 +18,7 @@ namespace Model {
 
 		protected internal Trash trash;
 		protected internal Account account;
-		public Model.Trash m_Trash;
-
-
+		
 		public MarketPlayer(){
 
 			Trash trash = new Trash();
@@ -32,6 +30,7 @@ namespace Model {
 
 			Trash trash = new Trash();
 			Account = account;
+			Console.WriteLine("Магазин для игроков");
 		}
 
 		public override void ShowItems(){
