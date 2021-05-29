@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  DB.cs
 //  Implementation of the Class DB
-//  Created on:      29-май-2021 17:48:43
+//  Created on:      29-май-2021 19:33:00
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,27 +12,19 @@ using System.IO;
 
 
 
-using Model;
 namespace Model {
 	public class DB {
 
-		
+		private static List <string> ListUsers = new List<string>{"admin", "player", "vip", "new"};
 		private static int crystalPrice = 100;
 
-		public DB(){
-
-		}
-
-		~DB(){
-
-		}
-
+		
 		/// 
 		/// <param name="name"></param>
 		/// <param name="pass"></param>
 		public static bool HasUser(string name, string pass){
 
-			return true;
+			return ListUsers.Contains(name);
 		}
 
 		public static int CrystalPrice{
@@ -56,6 +48,14 @@ namespace Model {
 		public static Type GetTypeAccount(string name){
 
 			return typeof(Player);
+		}
+
+		/// 
+		/// <param name="name"></param>
+		public static bool NewAccount(string name){
+
+			ListUsers.Add(name);
+			return ListUsers.Contains(name);
 		}
 
 	}//end DB

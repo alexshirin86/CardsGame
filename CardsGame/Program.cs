@@ -8,8 +8,48 @@ namespace CardsGame
     {
         static void Main(string[] args)
         {
-            Account account = new Account(5);
-            Console.WriteLine("Hello World!");
+            Game game = new Game();
+            Console.WriteLine("Добро пожаловать");
+
+            Console.WriteLine("Ведите одно из имен ниже.");
+            Console.WriteLine("admin, player, vip, new или exit для выхода.");
+
+            bool logining;
+            string name;
+            do
+            {
+                name = Console.ReadLine();
+                switch (name)
+                {
+                    case "exit":
+                        logining = true;
+                        break;
+                    case "new":
+                        logining = game.Login(name, "pass");
+                        Console.WriteLine("Введите новое имя.");
+                        name = Console.ReadLine();
+                        logining = game.NewAccount(name, "pass");
+                        break;
+                    default:
+                        logining = game.Login(name, "pass");
+                        if (!logining)
+                        {
+                            Console.WriteLine("Попробуйте еще раз или введите exit для выхода.");
+                        }
+                        break;
+                } 
+                
+                if (logining)
+                {
+                     Console.WriteLine($"Добро пожаловать, {name}!");
+                }
+                
+            } while (!logining);
+
+            if (name == "exit")
+            {
+                Console.WriteLine("Досвидания!");
+            }
             Console.Read();
         }
     }
