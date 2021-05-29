@@ -30,7 +30,19 @@ namespace Model {
 		public bool Login(string name, string pass){
 
 			if(DB.HasUser(name, pass)){
-				_account = new Account(DB.GetId(name), DB.GetTypeAccount(name));
+				Type typeAccount = DB.GetTypeAccount(name);
+				_account = new Account(DB.GetId(name), typeAccount);
+
+                if (typeAccount == typeof(Admin)) {
+					_market = new MarketAdmin(Account);
+				}
+                else if (typeAccount == typeof(Player)) {
+					_market = new MarketPlayer(Account);
+				}
+				else if(typeAccount == typeof(Vip)) {
+					_market = new MarketVip(Account);
+				}
+				//_market = new Market(Account);
 				return true;
 			}
 			return false;

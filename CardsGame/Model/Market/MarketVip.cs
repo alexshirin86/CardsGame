@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketVip.cs
 //  Implementation of the Class MarketVip
-//  Created on:      29-май-2021 17:25:21
+//  Created on:      29-май-2021 20:58:08
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -19,14 +19,12 @@ namespace Model {
 		private int disscount;
 
 
+		/// 
+		/// <param name="account"></param>
+		public MarketVip(Account account){
 
-		~MarketVip(){
-
-		}
-
-		public MarketVip():base(){
-
-			
+			Trash trash = new Trash();
+			Account = account;
 		}
 
 		public override void ShowItems(){

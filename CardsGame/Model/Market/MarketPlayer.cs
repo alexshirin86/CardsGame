@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketPlayer.cs
 //  Implementation of the Class MarketPlayer
-//  Created on:      29-май-2021 17:25:22
+//  Created on:      29-май-2021 20:58:09
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -16,28 +16,39 @@ using Model;
 namespace Model {
 	public class MarketPlayer : Market {
 
-		protected internal Account account;
 		protected internal Trash trash;
-		
+		protected internal Account account;
+		public Model.Trash m_Trash;
 
-		
+
 		public MarketPlayer(){
 
 			Trash trash = new Trash();
 		}
 
-		public override Account Account{
-			get {
-				return account;
-			}
+		/// 
+		/// <param name="account"></param>
+		public MarketPlayer(Account account){
+
+			Trash trash = new Trash();
+			Account = account;
+		}
+
+		public override void ShowItems(){
+
 		}
 
 		public void AddInTrash(){
 
 		}
 
-		public override void ShowItems(){
-
+		protected internal override Account Account{
+			get {
+				return account;
+			}
+			set {
+				account = value;
+			}
 		}
 
 	}//end MarketPlayer

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Market.cs
 //  Implementation of the Class Market
-//  Created on:      29-май-2021 17:25:21
+//  Created on:      29-май-2021 20:32:16
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -16,16 +16,16 @@ using Model;
 namespace Model {
 	public abstract class Market {
 
-		private Account _account;
 		public Model.Account m_Account;
 
 		
-		public abstract Account Account{
-			get;
-		}
-
 		public virtual void ShowItems(){
 
+		}
+
+		protected internal abstract Account Account{
+			get;
+			set;
 		}
 
 	}//end Market

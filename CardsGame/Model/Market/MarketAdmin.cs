@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketAdmin.cs
 //  Implementation of the Class MarketAdmin
-//  Created on:      29-май-2021 17:25:22
+//  Created on:      29-май-2021 20:58:09
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -16,17 +16,27 @@ using Model;
 namespace Model {
 	public class MarketAdmin : Market {
 
-		private Account _account;
+		private Account account;
 
 		
-		public override Account Account{
-			get {
-				return _account;
-			}
+		/// 
+		/// <param name="account"></param>
+		public MarketAdmin(Account account){
+
+			Account = account;
 		}
 
 		public override void ShowItems(){
 
+		}
+
+		protected internal override Account Account{
+			get {
+				return account;
+			}
+			set {
+				account = value;
+			}
 		}
 
 	}//end MarketAdmin
