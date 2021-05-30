@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Earth.cs
 //  Implementation of the Class Earth
-//  Created on:      29-май-2021 15:42:54
+//  Created on:      30-май-2021 4:56:24
 //  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
@@ -16,11 +16,21 @@ using Model;
 namespace Model {
 	public class Earth : Spell {
 
-		public Earth(){
+		/// 
+		/// <param name="name"></param>
+		/// <param name="flavour"></param>
+		/// <param name="gold"></param>
+		/// <param name="crystal"></param>
+		/// <param name="price"></param>
+		public Earth(string name, string flavour, int gold, int crystal, int price) : base(name, flavour, gold, crystal, price)
+		{
 
 		}
 
-		~Earth(){
+		/// 
+		/// <param name="id"></param>
+		public Earth(int id) : base(id)
+		{
 
 		}
 

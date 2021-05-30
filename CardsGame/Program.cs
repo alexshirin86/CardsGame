@@ -14,38 +14,38 @@ namespace CardsGame
             Console.WriteLine("Ведите одно из имен ниже.");
             Console.WriteLine("admin, player, vip, new или exit для выхода.");
 
+            bool exit = false;
             bool logining;
-            string name;
+            string command;
             do
             {
-                name = Console.ReadLine();
-                switch (name)
+                command = Console.ReadLine();
+                switch (command)
                 {
                     case "exit":
-                        logining = true;
+                        exit = true;
                         break;
                     case "new":
-                        logining = game.Login(name, "pass");
+                        logining = game.Login(command, "pass");
                         Console.WriteLine("Введите новое имя.");
-                        name = Console.ReadLine();
-                        logining = game.NewAccount(name, "pass");
+                        command = Console.ReadLine();
+                        logining = game.NewAccount(command, "pass");
                         break;
                     default:
-                        logining = game.Login(name, "pass");
+                        logining = game.Login(command, "pass");
                         if (!logining)
                         {
                             Console.WriteLine("Попробуйте еще раз или введите exit для выхода.");
                         }
                         break;
-                }               
-                
-            } while (!logining);
+                }
 
-            if (name == "exit")
-            {
-                Console.WriteLine("Досвидания!");
-            }
-            Console.Read();
+                exit = game.Exit;
+            } while (!exit);
+
+            Console.WriteLine("Досвидания!");
+
+            Console.ReadKey();
         }
     }
 }

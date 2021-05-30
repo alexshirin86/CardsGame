@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Item.cs
 //  Implementation of the Class Item
-//  Created on:      29-май-2021 15:39:50
+//  Created on:      30-май-2021 3:35:44
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -15,17 +15,14 @@ using System.IO;
 namespace Model {
 	public abstract class Item {
 
-		private int price;
-
-		public Item(){
-
-		}
-
-		~Item(){
-
-		}
+		
 
 		public abstract int Price{
+			get;
+			
+		}
+
+		public abstract string Name{
 			get;
 		}
 

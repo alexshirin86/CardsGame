@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Crystal.cs
 //  Implementation of the Class Crystal
-//  Created on:      29-май-2021 15:41:12
+//  Created on:      30-май-2021 4:28:45
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -18,17 +18,13 @@ namespace Model {
 
 		
 
-
-
-		~Crystal(){
-
-		}
-
-		public Crystal(){
+		/// 
+		/// <param name="count"></param>
+		public Crystal(int count):base(count)
+		{
 
 			price = DB.CrystalPrice;
 		}
-
 
 	}//end Crystal
 

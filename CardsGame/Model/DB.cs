@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  DB.cs
 //  Implementation of the Class DB
-//  Created on:      29-май-2021 21:25:01
+//  Created on:      30-май-2021 4:02:00
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,6 +12,7 @@ using System.IO;
 
 
 
+using Model;
 namespace Model {
 	public class DB {
 
@@ -23,8 +24,21 @@ namespace Model {
 		    ["new"] = typeof(Player)
 		};
 		private static int crystalPrice = 100;
+		private static Dictionary <string, Type> DictionaryItems = new Dictionary<string, Type> 
+		{ 
+		    ["admin"] = typeof(Admin), 
+		    ["player"] = typeof(Player), 
+		    ["vip"] = typeof(Vip), 
+		    ["new"] = typeof(Player)
+		};
 
-		
+		public DB(){
+
+		}
+
+		~DB(){
+
+		}
 
 		/// 
 		/// <param name="name"></param>
@@ -63,6 +77,19 @@ namespace Model {
 
 			DictionaryUsers.Add(name, typeof(Player));
 			return DictionaryUsers.ContainsKey(name);
+		}
+
+		/// 
+		/// <param name="id"></param>
+		public static CardDB GetCard(int id){
+
+			CardDB card = new CardDB( "карта", "карта", 100, 0, 0 );
+	
+			Dictionary<int, CardDB> dict = new Dictionary<int, CardDB>{ 
+			    [1] = card
+			};
+		
+			return dict[ id ];
 		}
 
 	}//end DB

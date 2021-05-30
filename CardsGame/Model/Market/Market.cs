@@ -16,7 +16,7 @@ using Model;
 namespace Model {
 	public abstract class Market {
 
-		public Model.Account m_Account;
+		
 
 		
 		public virtual void ShowItems(){

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Fire.cs
 //  Implementation of the Class Fire
-//  Created on:      29-май-2021 15:43:14
+//  Created on:      30-май-2021 4:56:23
 //  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
@@ -16,11 +16,20 @@ using Model;
 namespace Model {
 	public class Fire : Spell {
 
-		public Fire(){
+		/// 
+		/// <param name="id"></param>
+		public Fire(int id):base(id){
 
 		}
 
-		~Fire(){
+		/// 
+		/// <param name="name"></param>
+		/// <param name="flavour"></param>
+		/// <param name="gold"></param>
+		/// <param name="crystal"></param>
+		/// <param name="price"></param>
+		public Fire(string name, string flavour, int gold, int crystal, int price) : base(name, flavour, gold, crystal, price)
+		{
 
 		}
 

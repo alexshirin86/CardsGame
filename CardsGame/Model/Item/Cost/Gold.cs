@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Gold.cs
 //  Implementation of the Class Gold
-//  Created on:      29-май-2021 15:41:22
+//  Created on:      30-май-2021 4:55:42
 //  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
@@ -16,11 +16,10 @@ using Model;
 namespace Model {
 	public class Gold : Cost {
 
-		public Gold(){
-
-		}
-
-		~Gold(){
+		/// 
+		/// <param name="count"></param>
+		public Gold(int count) : base(count)
+		{
 
 		}
 
