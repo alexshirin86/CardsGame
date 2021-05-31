@@ -22,7 +22,6 @@ namespace Model {
 		protected internal string flavour;
 		protected internal Gold gold;
 		protected internal Crystal crystal;
-		public Model.Deck m_Deck;
 
 		/// 
 		/// <param name="id"></param>

@@ -32,6 +32,16 @@ namespace Model {
 		public override void ShowItems(){
 
 			base.ShowItems();
+			Console.WriteLine("Игровые вип карты");
+			List<CardDB> cards = DB.GetCardsMarketVip();
+
+			int i = 1;
+			foreach (CardDB card in cards)
+			{
+				Console.WriteLine($"{i}. {card.Name} {card.Price}");
+				i++;
+			}
+			Console.WriteLine($"\n");
 		}
 
 	}//end MarketVip

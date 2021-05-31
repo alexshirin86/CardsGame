@@ -50,6 +50,13 @@ namespace Model {
 		/// </summary>
 		/// <param name="name"></param>
 		/// <param name="pass"></param>
+		/// <summary>
+		/// <ol>
+		/// 	<li></li>
+		/// </ol>
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="pass"></param>
 		public bool Login(string name, string pass){
 
 			if(DB.HasUser(name, pass)){
@@ -98,7 +105,7 @@ namespace Model {
 				switch (command)
 				{
 					case "1":
-						
+						_market.ShowItems();
 						break;
 					case "2":
 						

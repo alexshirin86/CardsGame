@@ -34,7 +34,16 @@ namespace Model {
 		}
 
 		public override void ShowItems(){
+			base.ShowItems();
+			Console.WriteLine("Игровые карты");
+			List<CardDB> cards = DB.GetCardsMarketPlayer();
 
+			int i = 1;
+			foreach (CardDB card in cards) {
+				Console.WriteLine( $"{i}. {card.Name} {card. Price}");
+				i++;
+			}
+			Console.WriteLine("\n");
 		}
 
 		public void AddInTrash(){
