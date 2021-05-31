@@ -58,8 +58,8 @@ namespace Model {
 	
 			ProductDB product1 = new ProductDB("Продукт1", 0, 5, 50);
 			ProductDB product2 = new ProductDB("Продукт2", 0, 15, 500);
-			ProductDB product3 = new ProductDB("Продукт2", 0, 3, 100);
-			ProductDB product4 = new ProductDB("Продукт2", 0, 24, 150);
+			ProductDB product3 = new ProductDB("Продукт3", 0, 3, 100);
+			ProductDB product4 = new ProductDB("Продукт4", 0, 24, 150);
 	
 			_productMarketPlayer.Add(product1);
 			_productMarketPlayer.Add(product2);

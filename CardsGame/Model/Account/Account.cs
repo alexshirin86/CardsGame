@@ -92,10 +92,32 @@ namespace Model {
 		/// <param name="number"></param>
 		/// <param name="month"></param>
 		/// <param name="year"></param>
+		/// <summary>
+		/// пополнение баланса картой
+		/// </summary>
+		/// <param name="number"></param>
+		/// <param name="month"></param>
+		/// <param name="year"></param>
+		/// <summary>
+		/// пополнение баланса картой
+		/// </summary>
+		/// <param name="number"></param>
+		/// <param name="month"></param>
+		/// <param name="year"></param>
 		public void AddFunds(int number, int month, int year){
 
 		}
 
+		/// <summary>
+		/// пополнение баланса PayPal
+		/// </summary>
+		/// <param name="email"></param>
+		/// <param name="pnumber"></param>
+		/// <summary>
+		/// пополнение баланса PayPal
+		/// </summary>
+		/// <param name="email"></param>
+		/// <param name="pnumber"></param>
 		/// <summary>
 		/// пополнение баланса PayPal
 		/// </summary>
