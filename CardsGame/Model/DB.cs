@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  DB.cs
 //  Implementation of the Class DB
-//  Created on:      31-май-2021 13:34:47
+//  Created on:      31-май-2021 18:13:12
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -16,20 +16,20 @@ using Model;
 namespace Model {
 	public class DB {
 
-		private static Dictionary <string, Type> _dUsers = new Dictionary<string, Type> 
+		private static Dictionary <string, EnumTypeAccount> _dUsers = new Dictionary<string, EnumTypeAccount> 
 		{ 
-		    ["admin"] = typeof(Admin), 
-		    ["player"] = typeof(Player), 
-		    ["vip"] = typeof(Vip), 
-		    ["new"] = typeof(Player)
+		    ["admin"] = EnumTypeAccount.Admin, 
+		    ["player"] =  EnumTypeAccount.Player, 
+		    ["vip"] =  EnumTypeAccount.Vip, 
+		    ["new"] = EnumTypeAccount.Player
 		};
 		private static int _crystalPrice = 100;
-		private static Dictionary <string, Type> _dItems = new Dictionary<string, Type> 
+		private static Dictionary <string, EnumTypeAccount> _dItems = new Dictionary<string, EnumTypeAccount> 
 		{ 
-		    ["admin"] = typeof(Admin), 
-		    ["player"] = typeof(Player), 
-		    ["vip"] = typeof(Vip), 
-		    ["new"] = typeof(Player)
+		    ["admin"] = EnumTypeAccount.Admin, 
+		    ["player"] = EnumTypeAccount.Player, 
+		    ["vip"] = EnumTypeAccount.Vip, 
+		    ["new"] = EnumTypeAccount.Player
 		};
 		private static int _goldPrice = 50;
 		private static List <ProductDB> _productMarketPlayer = new List<ProductDB>();
@@ -58,8 +58,8 @@ namespace Model {
 	
 			ProductDB product1 = new ProductDB("Продукт1", 0, 5, 50);
 			ProductDB product2 = new ProductDB("Продукт2", 0, 15, 500);
-			ProductDB product3 = new ProductDB("Продукт3", 0, 3, 100);
-			ProductDB product4 = new ProductDB("Продукт4", 0, 24, 150);
+			ProductDB product3 = new ProductDB("Продукт2", 0, 3, 100);
+			ProductDB product4 = new ProductDB("Продукт2", 0, 24, 150);
 	
 			_productMarketPlayer.Add(product1);
 			_productMarketPlayer.Add(product2);
@@ -84,7 +84,7 @@ namespace Model {
 
 		/// 
 		/// <param name="name"></param>
-		public static Type GetTypeAccount(string name){
+		public static EnumTypeAccount GetTypeAccount(string name){
 
 			return _dUsers[name];
 		}
@@ -93,7 +93,7 @@ namespace Model {
 		/// <param name="name"></param>
 		public static bool NewAccount(string name){
 
-			_dUsers.Add(name, typeof(Player));
+			_dUsers.Add(name, EnumTypeAccount.Player);
 			return _dUsers.ContainsKey(name);
 		}
 
@@ -144,6 +144,14 @@ namespace Model {
 		public static int GetDisscount(int id){
 
 			return _disscount;
+		}
+
+		/// 
+		/// <param name="id"></param>
+		/// <param name="money"></param>
+		public static void SetMoney(int id, int money){
+
+			_money += money;
 		}
 
 	}//end DB

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
-//  Player.cs
-//  Implementation of the Class Player
-//  Created on:      31-май-2021 13:53:08
+//  EnumTypeAccount.cs
+//  Implementation of the Enumeration EnumTypeAccount
+//  Created on:      31-май-2021 17:17:26
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,17 +12,13 @@ using System.IO;
 
 
 
-using Model;
 namespace Model {
-	public class Player : User {
+	public enum EnumTypeAccount : int {
 
-		private List <Deck> Decks;
-		protected internal string name;
+		Admin = 1,
+		Player = 2,
+		Vip = 3
 
-		public override string Name{
-			get {return name;}
-		}
-
-	}//end Player
+	}//end EnumTypeAccount
 
 }//end namespace Model

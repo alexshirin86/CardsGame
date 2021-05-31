@@ -14,7 +14,7 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Cost : Item {
+	public class Cost {
 
 		protected internal int count;
 		protected internal string name;
@@ -35,7 +35,7 @@ namespace Model {
 			}
 		}
 
-		public override string Name{
+		public string Name{
 			get {
 				return name;
 			}

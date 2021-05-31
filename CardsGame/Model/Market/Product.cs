@@ -20,7 +20,6 @@ namespace Model {
 		private Gold gold;
 		private string name;
 
-
 	
 		public int Price{
 			get {
