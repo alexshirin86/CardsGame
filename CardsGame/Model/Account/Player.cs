@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Player.cs
 //  Implementation of the Class Player
-//  Created on:      29-май-2021 15:38:19
+//  Created on:      31-май-2021 13:53:08
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -16,14 +16,11 @@ using Model;
 namespace Model {
 	public class Player : User {
 
-		protected internal string _name;
 		private List <Deck> Decks;
+		protected internal string name;
 
-		
 		public override string Name{
-			get{
-				return _name;
-			}
+			get {return name;}
 		}
 
 	}//end Player

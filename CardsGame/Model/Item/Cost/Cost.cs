@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Cost.cs
 //  Implementation of the Class Cost
-//  Created on:      30-май-2021 4:09:45
+//  Created on:      31-май-2021 13:42:07
 //  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
@@ -16,11 +16,9 @@ using Model;
 namespace Model {
 	public class Cost : Item {
 
-		protected internal int price;
 		protected internal int count;
 		protected internal string name;
 
-		
 		/// 
 		/// <param name="count"></param>
 		public Cost(int count){
@@ -34,12 +32,6 @@ namespace Model {
 			}
 			set{
 				count = value;
-			}
-		}
-
-		public override int Price{
-			get {
-				return price;
 			}
 		}
 

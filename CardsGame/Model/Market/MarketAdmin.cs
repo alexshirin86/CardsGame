@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketAdmin.cs
 //  Implementation of the Class MarketAdmin
-//  Created on:      29-май-2021 21:09:19
+//  Created on:      31-май-2021 13:30:58
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -18,7 +18,6 @@ namespace Model {
 
 		private Account account;
 
-		
 		/// 
 		/// <param name="account"></param>
 		public MarketAdmin(Account account){
@@ -27,8 +26,30 @@ namespace Model {
 			Console.WriteLine("Магазин для администратора");
 		}
 
-		public override void ShowItems(){
+		public override void ShowProducts(){
 
+			base.ShowProducts();
+			Console.WriteLine("Предложения для игроков");
+			List<ProductDB> products = DB.GetProductsMarketPlayer();
+	
+			int i = 1;
+			foreach (ProductDB product in products) {
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				i++;
+			}
+	
+			Console.WriteLine("\n");
+	
+			Console.WriteLine("Предложения для вип игроков");
+			products = DB.GetProductsMarketVip();
+	
+			i = 1;
+			foreach (ProductDB product in products) {
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				i++;
+			}
+	
+			Console.WriteLine("\n");
 		}
 
 		protected internal override Account Account{

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketPlayer.cs
 //  Implementation of the Class MarketPlayer
-//  Created on:      29-май-2021 21:09:18
+//  Created on:      31-май-2021 13:30:58
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -18,7 +18,8 @@ namespace Model {
 
 		protected internal Trash trash;
 		protected internal Account account;
-		
+		public Model.Trash m_Trash;
+
 		public MarketPlayer(){
 
 			Trash trash = new Trash();
@@ -33,16 +34,18 @@ namespace Model {
 			Console.WriteLine("Магазин для игроков");
 		}
 
-		public override void ShowItems(){
-			base.ShowItems();
-			Console.WriteLine("Игровые карты");
-			List<CardDB> cards = DB.GetCardsMarketPlayer();
+		public override void ShowProducts(){
 
+			base.ShowProducts();
+			Console.WriteLine("Предложения для игроков");
+			List<ProductDB> products = DB.GetProductsMarketPlayer();
+	
 			int i = 1;
-			foreach (CardDB card in cards) {
-				Console.WriteLine( $"{i}. {card.Name} {card. Price}");
+			foreach (ProductDB product in products) {
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
 				i++;
 			}
+	
 			Console.WriteLine("\n");
 		}
 

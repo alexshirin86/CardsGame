@@ -18,7 +18,7 @@ namespace Model {
 
 		/// 
 		/// <param name="count"></param>
-		public Gold(int count) : base(count)
+		public Gold(int count):base(count)
 		{
 
 		}

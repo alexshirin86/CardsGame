@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Card.cs
 //  Implementation of the Class Card
-//  Created on:      30-май-2021 4:57:55
+//  Created on:      31-май-2021 13:22:02
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -17,11 +17,11 @@ namespace Model {
 	public class Card : Item {
 
 		protected internal int id;
-		protected internal int price;
 		protected internal string name;
 		protected internal string flavour;
 		protected internal Gold gold;
 		protected internal Crystal crystal;
+		public Model.Deck m_Deck;
 
 		/// 
 		/// <param name="id"></param>
@@ -32,7 +32,7 @@ namespace Model {
 			flavour = card.Flavour;
 			gold = new Gold(card.Gold);
 			crystal = new Crystal(card.Crystal);
-			price = card.Price;
+			
 		}
 
 		/// 
@@ -66,12 +66,6 @@ namespace Model {
 		public override string Name{
 			get {
 				return name;
-			}
-		}
-
-		public override int Price{
-			get {
-				return price;
 			}
 		}
 

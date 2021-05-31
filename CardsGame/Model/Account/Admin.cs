@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Admin.cs
 //  Implementation of the Class Admin
-//  Created on:      29-май-2021 15:38:08
+//  Created on:      31-май-2021 13:55:49
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -16,20 +16,10 @@ using Model;
 namespace Model {
 	public class Admin : User {
 
-		protected internal string _name;
-
-		public Admin(){
-
-		}
-
-		~Admin(){
-
-		}
+		protected internal string name;
 
 		public override string Name{
-			get{
-				return _name;
-			}
+			get { return name; }
 		}
 
 	}//end Admin

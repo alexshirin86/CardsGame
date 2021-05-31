@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketVip.cs
 //  Implementation of the Class MarketVip
-//  Created on:      29-май-2021 21:09:18
+//  Created on:      31-май-2021 13:30:57
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -16,10 +16,6 @@ using Model;
 namespace Model {
 	public class MarketVip : MarketPlayer {
 
-		private int disscount;
-
-		
-
 		/// 
 		/// <param name="account"></param>
 		public MarketVip(Account account){
@@ -29,19 +25,19 @@ namespace Model {
 			Console.WriteLine("Магазин для вип игроков");
 		}
 
-		public override void ShowItems(){
+		public override void ShowProducts(){
 
-			base.ShowItems();
-			Console.WriteLine("Игровые вип карты");
-			List<CardDB> cards = DB.GetCardsMarketVip();
-
+			base.ShowProducts();
+			Console.WriteLine("Предложения для вип игроков");
+			List<ProductDB> products = DB.GetProductsMarketVip();
+	
 			int i = 1;
-			foreach (CardDB card in cards)
-			{
-				Console.WriteLine($"{i}. {card.Name} {card.Price}");
+			foreach (ProductDB product in products) {
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
 				i++;
 			}
-			Console.WriteLine($"\n");
+	
+			Console.WriteLine("\n");
 		}
 
 	}//end MarketVip

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////
-//  CardDB.cs
-//  Implementation of the Class CardDB
+//  ProductDB.cs
+//  Implementation of the Class ProductDB
 //  Created on:      31-май-2021 13:58:57
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
@@ -13,43 +13,38 @@ using System.IO;
 
 
 namespace Model {
-	/// <summary>
-	/// Включено для текущей версии
-	/// </summary>
-	public struct CardDB   {
+	public struct ProductDB   {
+
+		private int price;
 
 		private string name;
 
-		private string flavour;
+		private int gold;
 
 		private int crystal;
 
-		private int gold;
-
 		/// 
 		/// <param name="name"></param>
-		/// <param name="flavour"></param>
 		/// <param name="gold"></param>
 		/// <param name="crystal"></param>
-		public CardDB(string name, string flavour, int gold, int crystal){
+		/// <param name="price"></param>
+		public ProductDB(string name, int gold, int crystal, int price){
 
 			this.name = name;
-			this.flavour = flavour;
 			this.gold = gold;
 			this.crystal = crystal;
-	
+			this.price = price;
+		}
+
+		public int Price{
+			get {
+				return price;
+			}
 		}
 
 		public string Name{
 			get {
 				return name;
-			}
-	
-		}
-
-		public string Flavour{
-			get {
-				return flavour;
 			}
 	
 		}
@@ -68,6 +63,6 @@ namespace Model {
 	
 		}
 
-	}//end CardDB
+	}//end ProductDB
 
 }//end namespace Model

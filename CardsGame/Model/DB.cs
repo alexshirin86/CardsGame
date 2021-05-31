@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  DB.cs
 //  Implementation of the Class DB
-//  Created on:      31-май-2021 11:35:58
+//  Created on:      31-май-2021 13:34:47
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -32,19 +32,21 @@ namespace Model {
 		    ["new"] = typeof(Player)
 		};
 		private static int _goldPrice = 50;
-		private static List <CardDB> _cardMarketPlayer = new List<CardDB>();
+		private static List <ProductDB> _productMarketPlayer = new List<ProductDB>();
 		private static Dictionary <int, CardDB> _dCards = new Dictionary<int, CardDB> ();
-		private static List <CardDB> _cardMarketVip = new List<CardDB>();
+		private static List <ProductDB> _productMarketVip = new List<ProductDB>();
+		private static int _money = 0;
+		private static int _disscount = 0;
 
 		static DB(){
 
-			CardDB card1 = new CardDB("карта1", "карта1", 100, 0, 0 );
-			CardDB card2 = new CardDB("карта2", "карта2", 50, 0, 0);
-			CardDB card3 = new CardDB("карта3", "карта3", 200, 0, 0);
-			CardDB card4 = new CardDB("карта4", "карта4", 0, 5, 50);
-			CardDB card5 = new CardDB("карта5", "карта5", 0, 15, 500);
-			CardDB card6 = new CardDB("карта6", "карта6", 0, 3, 100);
-			CardDB card7 = new CardDB("карта7", "карта7", 0, 24, 150);
+			CardDB card1 = new CardDB("карта1", "карта1", 100, 0 );
+			CardDB card2 = new CardDB("карта2", "карта2", 50, 0);
+			CardDB card3 = new CardDB("карта3", "карта3", 200, 0);
+			CardDB card4 = new CardDB("карта4", "карта4", 0, 5);
+			CardDB card5 = new CardDB("карта5", "карта5", 0, 15);
+			CardDB card6 = new CardDB("карта6", "карта6", 0, 3);
+			CardDB card7 = new CardDB("карта7", "карта7", 0, 24);
 	
 			_dCards.Add(1, card1);
 			_dCards.Add(2, card2);
@@ -53,10 +55,16 @@ namespace Model {
 			_dCards.Add(5, card5);
 			_dCards.Add(6, card6);
 			_dCards.Add(7, card7);
-			_cardMarketPlayer.Add(card4);
-			_cardMarketPlayer.Add(card5);
-			_cardMarketVip.Add(card6);
-			_cardMarketVip.Add(card7);
+	
+			ProductDB product1 = new ProductDB("Продукт1", 0, 5, 50);
+			ProductDB product2 = new ProductDB("Продукт2", 0, 15, 500);
+			ProductDB product3 = new ProductDB("Продукт2", 0, 3, 100);
+			ProductDB product4 = new ProductDB("Продукт2", 0, 24, 150);
+	
+			_productMarketPlayer.Add(product1);
+			_productMarketPlayer.Add(product2);
+			_productMarketVip.Add(product3);
+			_productMarketVip.Add(product4);
 		}
 
 		/// 
@@ -96,9 +104,9 @@ namespace Model {
 			return _dCards[ id ];
 		}
 
-		public static List<CardDB> GetCardsMarketPlayer(){
+		public static List<ProductDB> GetProductsMarketPlayer(){
 
-			return _cardMarketPlayer;
+			return _productMarketPlayer;
 		}
 
 		public static int GoldPrice{
@@ -110,9 +118,9 @@ namespace Model {
 			}
 		}
 
-		public static List<CardDB> GetCardsMarketVip(){
+		public static List<ProductDB> GetProductsMarketVip(){
 
-			return _cardMarketVip;
+			return _productMarketVip;
 		}
 
 		public static int CrystalPrice{
@@ -122,6 +130,20 @@ namespace Model {
 			set {
 				_goldPrice = value;
 			}
+		}
+
+		/// 
+		/// <param name="id"></param>
+		public static int GetMoney(int id){
+
+			return _money;
+		}
+
+		/// 
+		/// <param name="id"></param>
+		public static int GetDisscount(int id){
+
+			return _disscount;
 		}
 
 	}//end DB

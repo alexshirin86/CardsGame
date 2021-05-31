@@ -23,7 +23,7 @@ namespace Model {
 		public Crystal(int count):base(count)
 		{
 
-			price = DB.CrystalPrice;
+			
 		}
 
 	}//end Crystal
