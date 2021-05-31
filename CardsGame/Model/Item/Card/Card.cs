@@ -14,7 +14,7 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Card : Item {
+	public class Card {
 
 		protected internal int id;
 		protected internal string name;
@@ -63,7 +63,7 @@ namespace Model {
 			}
 		}
 
-		public override string Name{
+		public string Name{
 			get {
 				return name;
 			}
