@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BCC9B373-9DCF-4D48-8A56-B7611C78345C}"
 	ProjectSection(SolutionItems) = preProject
 		eapx\CardsGame.eapx = eapx\CardsGame.eapx
+		diagram\Interfaces.png = diagram\Interfaces.png
 		diagram\Model.png = diagram\Model.png
 	EndProjectSection
 EndProject
