@@ -15,24 +15,18 @@ using System.IO;
 using Model;
 using Interfaces;
 namespace Model {
-	public class Card : IElement {
+	public class Card {
 
-		protected internal int id;
-		protected internal string name;
-		protected internal string flavour;
-		protected internal Gold gold;
-		protected internal Crystal crystal;
-		public Model.Deck m_Deck;
-
+				
 		/// 
 		/// <param name="id"></param>
 		public Card(int id){
 
 			CardDB card = DB.GetCard( id );
-			name = card.Name;
-			flavour = card.Flavour;
-			gold = new Gold(card.Gold);
-			crystal = new Crystal(card.Crystal);
+			Name = card.Name;
+			Flavour = card.Flavour;
+			Gold = new Gold(card.Gold);
+			Crystal = new Crystal(card.Crystal);
 	
 		}
 
@@ -47,27 +41,19 @@ namespace Model {
 		}
 
 		public Crystal Crystal{
-			get {
-				return crystal;
-			}
+			get; init;
 		}
 
 		public string Flavour{
-			get {
-				return flavour;
-			}
+			get; init;
 		}
 
 		public Gold Gold{
-			get {
-				return gold;
-			}
+			get; init;
 		}
 
 		public string Name{
-			get {
-				return name;
-			}
+			get; init;
 		}
 
 	}//end Card

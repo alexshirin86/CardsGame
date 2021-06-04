@@ -16,38 +16,42 @@ using Model;
 namespace Model {
 	public class Trash {
 
-		private int sum;
-		private List <Product> products;
+		//private int sum;
+		private List <Product> _products;
 
 		public Trash(){
 
-			sum = 0;
+			Sum = 0;
 		}
 
 		public void Pay(){
 
 		}
 
+		public int Sum {
+			get; private set;
+		}
+
 		/// 
 		/// <param name="product"></param>
 		public void Add(Product product){
 
-			products.Add(product);
-			sum += product.Price;
+			_products.Add(product);
+			Sum += product.Price;
 		}
 
 		/// 
 		/// <param name="product"></param>
 		public void Remove(Product product){
 
-			products.Remove(product);
-			sum -= product.Price;
+			_products.Remove(product);
+			Sum -= product.Price;
 		}
 
 		public void Clear(){
 
-			products.Clear();
-			sum = 0;
+			_products.Clear();
+			Sum = 0;
 		}
 
 	}//end Trash

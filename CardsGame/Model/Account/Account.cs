@@ -15,11 +15,8 @@ using System.IO;
 namespace Model {
 	public class Account {
 
-		private int money;
-		private int id;
-		private int disscount;
+		
 		private EnumTypeAccount typeAccount;
-		private string name;
 
 		/// 
 		/// <param name="id"></param>
@@ -27,38 +24,21 @@ namespace Model {
 		public Account(int id, EnumTypeAccount typeAccount)
 		{
 
-			money = DB.GetMoney(id);
-			disscount = DB.GetDisscount(id);
-			this.typeAccount = typeAccount;
+			Money = DB.GetMoney(id);
+			Disscount = DB.GetDisscount(id);
+			TypeAccount = typeAccount;
 			
 		}
 
 		public int Money{
-			get { return money; }
+			get; private set;
 		}
 
-		/// <summary>
-		/// пополнение баланса картой
-		/// </summary>
-		/// <param name="number"></param>
-		/// <param name="month"></param>
-		/// <param name="year"></param>
-		/// <param name="cash"></param>
-		/// <summary>
-		/// пополнение баланса картой
-		/// </summary>
-		/// <param name="number"></param>
-		/// <param name="month"></param>
-		/// <param name="year"></param>
-		/// <param name="cash"></param>
-		/// <summary>
-		/// пополнение баланса картой
-		/// </summary>
-		/// <param name="number"></param>
-		/// <param name="month"></param>
-		/// <param name="year"></param>
-		/// <param name="cash"></param>
-		/// <summary>
+		public EnumTypeAccount TypeAccount {
+			get; private set;
+		}
+
+
 		/// пополнение баланса картой
 		/// </summary>
 		/// <param name="number"></param>
@@ -67,31 +47,14 @@ namespace Model {
 		/// <param name="cash"></param>
 		public void AddFunds(int number, int month, int year, int cash){
 
-			DB.SetMoney( id, cash );
+			DB.SetMoney( Id, cash );
 		}
 
 		public string Name{
-			get { return name; }
+			get; private set;
 		}
 
-		/// <summary>
-		/// пополнение баланса PayPal
-		/// </summary>
-		/// <param name="email"></param>
-		/// <param name="pnumber"></param>
-		/// <param name="cash"></param>
-		/// <summary>
-		/// пополнение баланса PayPal
-		/// </summary>
-		/// <param name="email"></param>
-		/// <param name="pnumber"></param>
-		/// <param name="cash"></param>
-		/// <summary>
-		/// пополнение баланса PayPal
-		/// </summary>
-		/// <param name="email"></param>
-		/// <param name="pnumber"></param>
-		/// <param name="cash"></param>
+
 		/// <summary>
 		/// пополнение баланса PayPal
 		/// </summary>
@@ -100,15 +63,15 @@ namespace Model {
 		/// <param name="cash"></param>
 		public void AddFunds(string email, int pnumber, int cash){
 
-			DB.SetMoney( id, cash );
+			DB.SetMoney( Id, cash );
 		}
 
 		public int Disscount{
-			get { return disscount; }
+			get; init;
 		}
 
 		public int Id{
-			get { return id; }
+			get; init;
 		}
 
 	}//end Account

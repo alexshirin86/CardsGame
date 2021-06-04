@@ -14,25 +14,27 @@ using System.IO;
 
 namespace Model {
 	public class Product {
-		private int price;
-		private List <Card> cards;
-		private Crystal crystal;
-		private Gold gold;
-		private string name;
+		//private int price;
+		private List <Card> _cards;
+		private Crystal _crystal;
+		private Gold _gold;
+		//private string name;
 
 	
 		public int Price{
-			get {
-				return price;
-			}
+			get; init;
+		}
+
+		public int Name {
+			get; init;
 		}
 
 		public int GetGoldCount(){
-			return gold.Count;
+			return _gold.Count;
 		}
 
 		public int GetCrystalCount(){
-			return crystal.Count;
+			return _crystal.Count;
 		}
 }//end Product
 

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Model.Game">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQIAAQAAAAAAgAAAAAAAAAgAAIAAQAAAACAA=</HashCode>
+      <FileName>Model\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.DB" Collapsed="true">
+    <Position X="16.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAgAABAAIIAABAAABgAAAAAQgJIABAIAQEQAAIAAAA=</HashCode>
+      <FileName>Model\DB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Market">
+    <Position X="1.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Model\Market\Market.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.MarketAdmin">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Model\Market\MarketAdmin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.MarketPlayer">
+    <Position X="2.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAIAAAAAAgAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Model\Market\MarketPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.MarketVip">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Market\MarketVip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Product">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAABAABAAAARAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Model\Market\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Trash">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAgAAAAAABAAAAAAAAAAAAIAAAABAAAQ=</HashCode>
+      <FileName>Model\Market\Trash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Cost">
+    <Position X="6" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Cost\Cost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Crystal">
+    <Position X="4.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Cost\Crystal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Gold">
+    <Position X="7" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Cost\Gold.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Entity">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Card\Entity\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Air">
+    <Position X="7.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Card\Spell\Air.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Earth">
+    <Position X="9.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Card\Spell\Earth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Fire">
+    <Position X="11.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Card\Spell\Fire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Spell">
+    <Position X="10.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item\Card\Spell\Spell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Card">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Model\Item\Card\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Deck&lt;T&gt;">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAAAAAEABAAAAAAACQAAAAABAAAAAAAAEBQIAA=</HashCode>
+      <FileName>Model\Item\DeckT.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Account">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAAAAAAAIAAAACAAAQAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Model\Account\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Model.ProductDB" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAQAAAQAAAAAAAAAAAAQAAAAEAAAAAAAAAAABAAE=</HashCode>
+      <FileName>Model\ProductDB.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Model.CardDB" Collapsed="true">
+    <Position X="16.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAQAAAAAAAAAAIAAAACQAAAAEAAAAAAAAAAABAAE=</HashCode>
+      <FileName>Model\CardDB.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Interfaces.IElementsQueue&lt;T&gt;">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAAAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Interfaces\IElementsQueueT.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Interfaces.IElementsStack&lt;T&gt;">
+    <Position X="9" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAEAAAAAAAAAIAAAACAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Model\Interfaces\IElementsStackT.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Interfaces.IElements&lt;T&gt;" Collapsed="true">
+    <Position X="10" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAQAAAAAAAAAAAAAAEBQIAA=</HashCode>
+      <FileName>Model\Interfaces\IElementsT.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Model.EnumTypeAccount">
+    <Position X="14.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Model\Account\EnumTypeAccount.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

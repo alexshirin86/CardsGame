@@ -16,9 +16,9 @@ using Model;
 namespace Model {
 	public class MarketPlayer : Market {
 
-		protected internal Trash trash;
-		protected internal Account account;
-		public Model.Trash m_Trash;
+		protected internal Trash _trash;
+		
+		
 
 		public MarketPlayer(){
 
@@ -42,7 +42,7 @@ namespace Model {
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
 				i++;
 			}
 	
@@ -54,12 +54,8 @@ namespace Model {
 		}
 
 		protected internal override Account Account{
-			get {
-				return account;
-			}
-			set {
-				account = value;
-			}
+			get; init;
+			
 		}
 
 	}//end MarketPlayer

@@ -16,29 +16,20 @@ using Model;
 namespace Model {
 	public class Cost {
 
-		protected internal int count;
-		protected internal string name;
-
 		/// 
 		/// <param name="count"></param>
 		public Cost(int count){
 
-			this.count = count;
+			this.Count = count;
 		}
 
 		public int Count{
-			get{
-				return count;
-			}
-			set{
-				count = value;
-			}
+			get; protected internal set;
+		
 		}
 
 		public string Name{
-			get {
-				return name;
-			}
+			get; init;
 		}
 
 	}//end Cost

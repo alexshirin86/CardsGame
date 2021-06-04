@@ -18,14 +18,9 @@ namespace Model {
 
 		private Account _account;
 		private Room _room;
-		private bool exit = false;
 		private Market _market;
 
-		/// <summary>
-		/// <ol>
-		/// 	<li></li>
-		/// </ol>
-		/// </summary>
+		///
 		/// <param name="name"></param>
 		/// <param name="pass"></param>
 		public bool Login(string name, string pass){
@@ -96,12 +91,12 @@ namespace Model {
 		}
 
 		public bool Exit{
-			get {
-				return exit;
-			}
-			set {
-				exit = value;
-			}
+			get; set;
+		}
+
+		public Game()
+        {
+			Exit = false;
 		}
 
 	}//end Game

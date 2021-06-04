@@ -16,8 +16,7 @@ using Model;
 namespace Model {
 	public class MarketAdmin : Market {
 
-		private Account account;
-
+		
 		/// 
 		/// <param name="account"></param>
 		public MarketAdmin(Account account){
@@ -34,7 +33,7 @@ namespace Model {
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
 				i++;
 			}
 	
@@ -45,7 +44,7 @@ namespace Model {
 	
 			i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
 				i++;
 			}
 	
@@ -53,12 +52,7 @@ namespace Model {
 		}
 
 		protected internal override Account Account{
-			get {
-				return account;
-			}
-			set {
-				account = value;
-			}
+			get; init;
 		}
 
 	}//end MarketAdmin
