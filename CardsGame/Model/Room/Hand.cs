@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////
-//  GameRule.cs
-//  Implementation of the Class GameRule
-//  Created on:      29-μΰι-2021 15:44:22
-//  Original author: Aleksey Shirin
+//  Hand.cs
+//  Implementation of the Class Hand
+//  Created on:      03-θών-2021 23:12:04
+//  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
 using System;
@@ -14,18 +14,21 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class GameRule {
+	public class Hand : IItemAction {
 
-		public Model.Room m_Room;
-
-		public GameRule(){
+		public void Add(){
 
 		}
 
-		~GameRule(){
+		public IItem Take(){
+
+			return null;
+		}
+
+		public void Move(){
 
 		}
 
-	}//end GameRule
+	}//end Hand
 
 }//end namespace Model

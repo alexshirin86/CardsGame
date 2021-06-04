@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Deck.cs
 //  Implementation of the Class Deck
-//  Created on:      29-μΰι-2021 15:44:00
+//  Created on:      03-θών-2021 23:12:03
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,14 +12,20 @@ using System.IO;
 
 
 
+using Model;
 namespace Model {
-	public class Deck {
+	public class Deck : IItemAction {
 
-		public Deck(){
+		public void Add(){
 
 		}
 
-		~Deck(){
+		public IItem Take(){
+			Card card = new Card(15);
+			return card;
+		}
+
+		public void Move(){
 
 		}
 

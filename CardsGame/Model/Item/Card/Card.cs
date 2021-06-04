@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Card.cs
 //  Implementation of the Class Card
-//  Created on:      31-μΰι-2021 13:22:02
+//  Created on:      03-θών-2021 23:13:11
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -14,14 +14,14 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Card {
+	public class Card : IItem {
 
 		protected internal int id;
 		protected internal string name;
 		protected internal string flavour;
 		protected internal Gold gold;
 		protected internal Crystal crystal;
-		public Model.Deck m_Deck;
+
 
 		/// 
 		/// <param name="id"></param>
@@ -32,7 +32,7 @@ namespace Model {
 			flavour = card.Flavour;
 			gold = new Gold(card.Gold);
 			crystal = new Crystal(card.Crystal);
-			
+	
 		}
 
 		/// 
