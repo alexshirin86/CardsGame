@@ -51,9 +51,7 @@ namespace Model {
 			Console.WriteLine("\n");
 		}
 
-		protected internal override Account Account{
-			get; init;
-		}
+		
 
 	}//end MarketAdmin
 

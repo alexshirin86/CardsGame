@@ -14,7 +14,7 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public abstract class Market {
+	public class Market {
 
 		
 
@@ -27,7 +27,7 @@ namespace Model {
 			Console.WriteLine("\n");
 		}
 
-		protected internal abstract Account Account{
+		public virtual Account Account{
 			get;
 			init;
 		}

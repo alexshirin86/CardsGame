@@ -33,7 +33,7 @@ namespace Model {
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
 				i++;
 			}
 	

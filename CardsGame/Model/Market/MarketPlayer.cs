@@ -53,10 +53,6 @@ namespace Model {
 
 		}
 
-		protected internal override Account Account{
-			get; init;
-			
-		}
 
 	}//end MarketPlayer
 
