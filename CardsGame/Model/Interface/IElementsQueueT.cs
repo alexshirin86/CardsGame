@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  IElementsQueueT.cs
 //  Implementation of the Interface IElementsQueue<T>
-//  Created on:      04-θών-2021 16:43:46
+//  Created on:      07-θών-2021 14:53:08
 //  Original author: Lucky
 ///////////////////////////////////////////////////////////
 
@@ -24,7 +24,9 @@ namespace Interfaces {
 
 		T Peek();
 
-		bool TryPeek();
+		/// 
+		/// <param name="item"></param>
+		bool TryPeek(out T item);
 	}//end IElementsQueue<T>
 
 }//end namespace Interfaces

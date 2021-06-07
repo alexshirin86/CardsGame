@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;
+using Interfaces;
 
 
 
@@ -16,9 +16,9 @@ using Model;
 namespace Model {
 	public class Game {
 
-		private Account _account;
+		private IAccount _account;
 		private Room _room;
-		private Market _market;
+		private IMarket _market;
 
 		///
 		/// <param name="name"></param>

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Account.cs
 //  Implementation of the Class Account
-//  Created on:      31-май-2021 17:35:38
+//  Created on:      07-июн-2021 13:19:18
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,33 +12,32 @@ using System.IO;
 
 
 
+using Model;
+using Interfaces;
 namespace Model {
-	public class Account {
+	public class Account : IAccount {
 
-		
 		private EnumTypeAccount typeAccount;
 
 		/// 
 		/// <param name="id"></param>
-		/// <param name="type"></param>
-		public Account(int id, EnumTypeAccount typeAccount)
-		{
+		/// <param name="typeAccount"></param>
+		public Account(int id, EnumTypeAccount typeAccount){
 
 			Money = DB.GetMoney(id);
 			Disscount = DB.GetDisscount(id);
-			TypeAccount = typeAccount;
-			
+			this.typeAccount = typeAccount;
 		}
 
 		public int Money{
 			get; private set;
 		}
 
-		public EnumTypeAccount TypeAccount {
+		public EnumTypeAccount TypeAccount{
 			get; private set;
 		}
 
-
+		/// <summary>
 		/// пополнение баланса картой
 		/// </summary>
 		/// <param name="number"></param>
@@ -53,7 +52,6 @@ namespace Model {
 		public string Name{
 			get; private set;
 		}
-
 
 		/// <summary>
 		/// пополнение баланса PayPal

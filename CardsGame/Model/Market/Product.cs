@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Product.cs
 //  Implementation of the Class Product
-//  Created on:      31-μΰι-2021 12:51:34
+//  Created on:      07-θών-2021 11:33:48
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,30 +12,35 @@ using System.IO;
 
 
 
+using Model;
 namespace Model {
 	public class Product {
-		//private int price;
-		private List <Card> _cards;
-		private Crystal _crystal;
+
 		private Gold _gold;
-		//private string name;
-
-	
-		public int Price{
-			get; init;
-		}
-
-		public int Name {
-			get; init;
-		}
+		private Crystal _crystal;
 
 		public int GetGoldCount(){
+
 			return _gold.Count;
 		}
 
 		public int GetCrystalCount(){
+
 			return _crystal.Count;
 		}
-}//end Product
+
+		public int Price{
+			get; init;
+		}
+
+		public string Name{
+			get; init;
+		}
+
+		public Card[] Card{
+			get; init;
+		}
+
+	}//end Product
 
 }//end namespace Model

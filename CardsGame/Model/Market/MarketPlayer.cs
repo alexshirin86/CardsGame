@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketPlayer.cs
 //  Implementation of the Class MarketPlayer
-//  Created on:      31-май-2021 13:30:58
+//  Created on:      07-июн-2021 14:36:48
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -13,12 +13,12 @@ using System.IO;
 
 
 using Model;
+using Interfaces;
 namespace Model {
-	public class MarketPlayer : Market {
+	public class MarketPlayer : IMarket {
 
 		protected internal Trash _trash;
-		
-		
+		protected internal Model.Trash m_Trash;
 
 		public MarketPlayer(){
 
@@ -27,22 +27,31 @@ namespace Model {
 
 		/// 
 		/// <param name="account"></param>
-		public MarketPlayer(Account account){
+		public MarketPlayer(IAccount account){
 
 			Trash trash = new Trash();
 			Account = account;
 			Console.WriteLine("Магазин для игроков");
 		}
 
-		public override void ShowProducts(){
+		public IAccount Account{
+			get;init;
+		}
 
-			base.ShowProducts();
+		public void ShowProducts(){
+
+			Console.WriteLine("\nВам доступно:");
+			Console.WriteLine("Игровая валюта");
+			Console.WriteLine($"1. Золото {DB.GoldPrice}");
+			Console.WriteLine($"2. Кристал {DB.CrystalPrice}");
+			Console.WriteLine("\n");
+	
 			Console.WriteLine("Предложения для игроков");
 			List<ProductDB> products = DB.GetProductsMarketPlayer();
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
 				i++;
 			}
 	
@@ -52,7 +61,6 @@ namespace Model {
 		public void AddInTrash(){
 
 		}
-
 
 	}//end MarketPlayer
 

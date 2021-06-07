@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketVip.cs
 //  Implementation of the Class MarketVip
-//  Created on:      31-май-2021 13:30:57
+//  Created on:      07-июн-2021 14:36:48
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,20 +12,21 @@ using System.IO;
 
 
 
+using Interfaces;
 using Model;
 namespace Model {
 	public class MarketVip : MarketPlayer {
 
 		/// 
 		/// <param name="account"></param>
-		public MarketVip(Account account){
+		public MarketVip(IAccount account){
 
 			Trash trash = new Trash();
 			Account = account;
 			Console.WriteLine("Магазин для вип игроков");
 		}
 
-		public override void ShowProducts(){
+		public new void ShowProducts(){
 
 			base.ShowProducts();
 			Console.WriteLine("Предложения для вип игроков");
@@ -33,7 +34,7 @@ namespace Model {
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
 				i++;
 			}
 	

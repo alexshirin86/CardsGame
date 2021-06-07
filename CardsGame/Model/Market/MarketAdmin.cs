@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  MarketAdmin.cs
 //  Implementation of the Class MarketAdmin
-//  Created on:      31-май-2021 13:30:58
+//  Created on:      07-июн-2021 14:36:48
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -12,28 +12,36 @@ using System.IO;
 
 
 
-using Model;
+using Interfaces;
 namespace Model {
-	public class MarketAdmin : Market {
+	public class MarketAdmin : IMarket {
 
-		
 		/// 
 		/// <param name="account"></param>
-		public MarketAdmin(Account account){
+		public MarketAdmin(IAccount account){
 
 			Account = account;
 			Console.WriteLine("Магазин для администратора");
 		}
 
-		public override void ShowProducts(){
+		public IAccount Account{
+			get; init;
+		}
 
-			base.ShowProducts();
+		public void ShowProducts(){
+
+			onsole.WriteLine("\nВам доступно:");
+			Console.WriteLine("Игровая валюта");
+			Console.WriteLine($"1. Золото {DB.GoldPrice}");
+			Console.WriteLine($"2. Кристал {DB.CrystalPrice}");
+			Console.WriteLine("\n");
+	
 			Console.WriteLine("Предложения для игроков");
 			List<ProductDB> products = DB.GetProductsMarketPlayer();
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
 				i++;
 			}
 	
@@ -44,14 +52,12 @@ namespace Model {
 	
 			i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
 				i++;
 			}
 	
 			Console.WriteLine("\n");
 		}
-
-		
 
 	}//end MarketAdmin
 

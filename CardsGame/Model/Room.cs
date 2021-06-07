@@ -18,10 +18,7 @@ namespace Model {
 		public Room(){
 
 		}
-
-		~Room(){
-
-		}
+		
 
 	}//end Room
 

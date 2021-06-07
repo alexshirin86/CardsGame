@@ -1,14 +1,14 @@
 ///////////////////////////////////////////////////////////
 //  DeckT.cs
 //  Implementation of the Class Deck<T>
-//  Created on:      04-θών-2021 18:20:12
+//  Created on:      07-θών-2021 15:14:50
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;
+using System.Linq;
 
 
 
@@ -56,7 +56,14 @@ namespace Model {
 
 		public T Peek(){
 
-			return _container.Peek();
+			try
+			{
+				return _container.Peek();
+			}	
+			catch (InvalidOperationException e)
+			{
+				return default(T);
+			}
 		}
 
 		public void Clear(){
@@ -64,9 +71,11 @@ namespace Model {
 			_container.Clear();
 		}
 
-		public bool TryPeek(){
+		/// 
+		/// <param name="item"></param>
+		public bool TryPeek(out T item){
 
-			return false;
+			return _container.TryPeek(out item);
 		}
 
 		public Type GetTypeContainer(){
@@ -80,10 +89,18 @@ namespace Model {
 		}
 
 		/// 
-		/// <param name="array"></param>
-		public   Deck(Array array){
+		/// <param name="arrayItems"></param>
+		public   Deck(T[] arrayItems){
 
-			
+			Random rand = new Random();
+			T[] newArrayItems = arrayItems.OrderBy(x => rand.Next()).ToArray();
+	
+			_container = new Queue<T>();
+	
+			foreach ( T item in arrayItems)
+			{
+				_container.Enqueue(item);
+			}
 		}
 
 	}//end Deck<T>
