@@ -25,16 +25,18 @@ namespace Model {
 			Trash trash = new Trash();
 		}
 
-		/// 
-		/// <param name="account"></param>
-		public MarketPlayer(IAccount account){
+        /// <summary>
+        ///   <param name="account"></param>
+        /// </summary>
+        public MarketPlayer(IAccount account)
+        {
 
-			Trash trash = new Trash();
-			Account = account;
-			Console.WriteLine("Магазин для игроков");
-		}
+            Trash trash = new Trash();
+            Account = account;
+            Console.WriteLine("Магазин для игроков");
+        }
 
-		public IAccount Account{
+        public IAccount Account{
 			get;init;
 		}
 
@@ -51,7 +53,7 @@ namespace Model {
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
 				i++;
 			}
 	

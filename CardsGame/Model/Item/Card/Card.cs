@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Card.cs
 //  Implementation of the Class Card
-//  Created on:      04-θών-2021 16:46:42
+//  Created on:      09-θών-2021 16:50:50
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -13,14 +13,14 @@ using System.IO;
 
 
 using Model;
-using Interfaces;
 namespace Model {
-	public class Card {
+	[Serializable]
+	public class Card : Item {
 
-				
 		/// 
 		/// <param name="id"></param>
-		public Card(int id){
+		public Card(int id)
+        {
 
 			CardDB card = DB.GetCard( id );
 			Name = card.Name;
@@ -36,26 +36,31 @@ namespace Model {
 		/// <param name="gold"></param>
 		/// <param name="crystal"></param>
 		/// <param name="price"></param>
-		public Card(string name, string flavour, int gold, int crystal, int price){
+		public Card(string name, string flavour, int gold, int crystal, int price)
+        {
 
 		}
 
-		public Crystal Crystal{
+        public override string ImagePath {
+            get; init;
+        }
+
+        public Crystal Crystal{
 			get; init;
 		}
 
-		public string Flavour{
+        public string Flavour {
+            get; init;
+        }
+
+        public Gold Gold{
 			get; init;
 		}
 
-		public Gold Gold{
-			get; init;
-		}
+        public override string Name {
+            get; init;
+        }
 
-		public string Name{
-			get; init;
-		}
-
-	}//end Card
+    }//end Card
 
 }//end namespace Model

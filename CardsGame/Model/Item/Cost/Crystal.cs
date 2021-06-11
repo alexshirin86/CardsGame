@@ -20,7 +20,7 @@ namespace Model {
 
 		/// 
 		/// <param name="count"></param>
-		public Crystal(int count):base(count)
+		public Crystal(int count) : base(count)
 		{
 
 			

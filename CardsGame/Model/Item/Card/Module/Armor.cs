@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
-//  Air.cs
-//  Implementation of the Class Air
-//  Created on:      30-μΰι-2021 4:56:24
+//  Armor.cs
+//  Implementation of the Class Armor
+//  Created on:      09-θών-2021 16:18:45
 //  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
@@ -14,7 +14,7 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Air : Spell {
+	public class Armor : Module {
 
 		/// 
 		/// <param name="name"></param>
@@ -22,18 +22,16 @@ namespace Model {
 		/// <param name="gold"></param>
 		/// <param name="crystal"></param>
 		/// <param name="price"></param>
-		public Air(string name, string flavour, int gold, int crystal, int price) : base(name, flavour, gold, crystal, price)
-		{
+		public Armor(string name, string flavour, int gold, int crystal, int price) : base(name, flavour, gold, crystal, price){
 
 		}
 
 		/// 
 		/// <param name="id"></param>
-		public Air(int id): base(id)
-		{
+		public Armor(int id) : base(id){
 
 		}
 
-	}//end Air
+	}//end Armor
 
 }//end namespace Model

@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////
-//  Entity.cs
-//  Implementation of the Class Entity
-//  Created on:      30-μΰι-2021 4:55:57
-//  Original author: Aleksey Shirin
+//  Weapon.cs
+//  Implementation of the Class Weapon
+//  Created on:      09-θών-2021 16:18:56
+//  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
 using System;
@@ -14,13 +14,7 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Entity : Card {
-
-		/// 
-		/// <param name="id"></param>
-		public Entity(int id):base(id){
-
-		}
+	public class Weapon : Module {
 
 		/// 
 		/// <param name="name"></param>
@@ -28,11 +22,16 @@ namespace Model {
 		/// <param name="gold"></param>
 		/// <param name="crystal"></param>
 		/// <param name="price"></param>
-		public Entity(string name, string flavour, int gold, int crystal, int price): base(name, flavour, gold, crystal, price)
-		{
+		public Weapon(string name, string flavour, int gold, int crystal, int price) : base(name, flavour, gold, crystal, price){
 
 		}
 
-	}//end Entity
+		/// 
+		/// <param name="id"></param>
+		public Weapon(int id) : base(id){
+
+		}
+
+	}//end Weapon
 
 }//end namespace Model

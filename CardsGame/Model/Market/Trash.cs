@@ -28,27 +28,31 @@ namespace Model {
 
 		}
 
-		public int Sum {
-			get; private set;
-		}
+        public int Sum {
+            get; private set;
+        }
 
-		/// 
-		/// <param name="product"></param>
-		public void Add(Product product){
+        /// <summary>
+        ///   <param name="product"></param>
+        /// </summary>
+        public void Add(Product product)
+        {
 
-			_products.Add(product);
-			Sum += product.Price;
-		}
+            _products.Add(product);
+            Sum += product.Price;
+        }
 
-		/// 
-		/// <param name="product"></param>
-		public void Remove(Product product){
+        /// <summary>
+        ///   <param name="product"></param>
+        /// </summary>
+        public void Remove(Product product)
+        {
 
-			_products.Remove(product);
-			Sum -= product.Price;
-		}
+            _products.Remove(product);
+            Sum -= product.Price;
+        }
 
-		public void Clear(){
+        public void Clear(){
 
 			_products.Clear();
 			Sum = 0;

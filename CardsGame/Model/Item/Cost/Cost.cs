@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Cost.cs
 //  Implementation of the Class Cost
-//  Created on:      31-μΰι-2021 13:42:07
+//  Created on:      09-θών-2021 16:50:51
 //  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
@@ -14,24 +14,28 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Cost {
+	public class Cost : Item {
 
 		/// 
 		/// <param name="count"></param>
-		public Cost(int count){
+		public Cost(int count)
+        {
 
-			this.Count = count;
+			Count = count;
 		}
 
-		public int Count{
-			get; protected internal set;
-		
-		}
+        public int Count {
+            get; protected set;
+        }
 
-		public string Name{
-			get; init;
-		}
+        public override string ImagePath {
+            get; init;
+        }
 
-	}//end Cost
+        public override string Name {
+            get; init;
+        }
+
+    }//end Cost
 
 }//end namespace Model

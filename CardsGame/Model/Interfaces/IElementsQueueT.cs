@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  IElementsQueueT.cs
 //  Implementation of the Interface IElementsQueue<T>
-//  Created on:      07-θών-2021 14:53:08
+//  Created on:      09-θών-2021 16:44:19
 //  Original author: Lucky
 ///////////////////////////////////////////////////////////
 
@@ -14,19 +14,18 @@ using System.IO;
 
 using Interfaces;
 namespace Interfaces {
-	public interface IElementsQueue<T> : IElements<T>  {
+	public interface IElementsQueue<T> : IElements<T>
+    {
 
-		/// 
-		/// <param name="item"></param>
-		void Enqueue(T item);
+        /// <summary>
+        ///   <param name="item"></param>
+        /// </summary>
+        void Enqueue(T item);
 
-		T Dequeue();
+        T Dequeue();
 
 		T Peek();
-
-		/// 
-		/// <param name="item"></param>
-		bool TryPeek(out T item);
-	}//end IElementsQueue<T>
+        bool TryPeek(out T item);
+    }//end IElementsQueue<T>
 
 }//end namespace Interfaces

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  DeckT.cs
 //  Implementation of the Class Deck<T>
-//  Created on:      07-θών-2021 15:14:50
+//  Created on:      09-θών-2021 16:55:25
 //  Original author: Aleksey Shirin
 ///////////////////////////////////////////////////////////
 
@@ -13,48 +13,65 @@ using System.Linq;
 
 
 using Interfaces;
+using Model;
 namespace Model {
-	public class Deck<T> : IElementsQueue<T> {
+	public class Deck<T> : Item, IElementsQueue<T> {
 
 		private Queue <T> _container;
 
-		public int Count{
-			get{ return _container.Count; }
-		}
+        public int Count {
+            get { return _container.Count; }
+        }
 
-		/// 
-		/// <param name="item"></param>
-		public void Enqueue(T item){
+        /// <summary>
+        ///   <param name="item"></param>
+        /// </summary>
+        public void Enqueue(T item)
+        {
 
-			_container.Enqueue(item);
-		}
+            _container.Enqueue(item);
+        }
 
-		public IEnumerator<T> GetEnumerator(){
+        public IEnumerator<T> GetEnumerator(){
 
 			return _container.GetEnumerator();
 		}
 
-		/// 
-		/// <param name="item"></param>
-		public bool Contains(T item){
+        public override string Name {
+            get;
+            init;
+        }
 
-			return _container.Contains(item);
-		}
+        /// <summary>
+        ///   <param name="item"></param>
+        /// </summary>
+        public bool Contains(T item)
+        {
 
-		public T Dequeue(){
+            return _container.Contains(item);
+        }
+
+        public T Dequeue(){
 
 			return _container.Dequeue();
 		}
 
-		/// 
-		/// <param name="array"></param>
-		/// <param name="arrayIndex"></param>
-		public void CopyTo(T[] array, int arrayIndex = 0){
+        public override string ImagePath {
+            get;
+            init;
+        }
 
-			_container.CopyTo(array, arrayIndex);
-		}
+        /// <summary>
+        ///   <param name="array"></param>
+        ///   <param name="arrayIndex"></param>
+        /// </summary>
+        public void CopyTo(T[] array, int arrayIndex = 0)
+        {
 
-		public T Peek(){
+            _container.CopyTo(array, arrayIndex);
+        }
+
+        public T Peek(){
 
 			try
 			{
@@ -71,14 +88,16 @@ namespace Model {
 			_container.Clear();
 		}
 
-		/// 
-		/// <param name="item"></param>
-		public bool TryPeek(out T item){
+        /// <summary>
+        ///   <param name="item"></param>
+        /// </summary>
+        public bool TryPeek(out T item)
+        {
 
-			return _container.TryPeek(out item);
-		}
+            return _container.TryPeek(out item);
+        }
 
-		public Type GetTypeContainer(){
+        public Type GetTypeContainer(){
 
 			return _container.GetType();
 		}
@@ -103,6 +122,10 @@ namespace Model {
 			}
 		}
 
-	}//end Deck<T>
+	}
+
+	
+
+	
 
 }//end namespace Model

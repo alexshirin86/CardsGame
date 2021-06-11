@@ -28,7 +28,8 @@ namespace Model {
 		/// <param name="gold"></param>
 		/// <param name="crystal"></param>
 		/// <param name="price"></param>
-		public ProductDB(string name, int gold, int crystal, int price){
+		public ProductDB(string name, int gold, int crystal, int price)
+        {
 
 			this.name = name;
 			this.gold = gold;
@@ -36,33 +37,33 @@ namespace Model {
 			this.price = price;
 		}
 
-		public int Price{
-			get {
-				return price;
-			}
-		}
+        public int Price {
+            get {
+                return price;
+            }
+        }
 
-		public string Name{
-			get {
-				return name;
-			}
-	
-		}
+        public string Name {
+            get {
+                return name;
+            }
 
-		public int Gold{
-			get {
-				return gold;
-			}
-	
-		}
+        }
 
-		public int Crystal{
-			get {
-				return crystal;
-			}
-	
-		}
+        public int Gold {
+            get {
+                return gold;
+            }
 
-	}//end ProductDB
+        }
+
+        public int Crystal {
+            get {
+                return crystal;
+            }
+
+        }
+
+    }//end ProductDB
 
 }//end namespace Model

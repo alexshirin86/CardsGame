@@ -14,16 +14,13 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Hand : IItemAction {
+	public class Hand  {
 
 		public void Add(){
 
 		}
 
-		public IItem Take(){
-
-			return null;
-		}
+		
 
 		public void Move(){
 

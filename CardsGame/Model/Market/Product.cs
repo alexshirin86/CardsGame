@@ -19,28 +19,30 @@ namespace Model {
 		private Gold _gold;
 		private Crystal _crystal;
 
-		public int GetGoldCount(){
+        public int GetGoldCount()
+        {
 
-			return _gold.Count;
-		}
+            return _gold.Count;
+        }
 
-		public int GetCrystalCount(){
+        public int GetCrystalCount()
+        {
 
-			return _crystal.Count;
-		}
+            return _crystal.Count;
+        }
 
-		public int Price{
-			get; init;
-		}
+        public int Price {
+            get; init;
+        }
 
-		public string Name{
-			get; init;
-		}
+        public string Name {
+            get; init;
+        }
 
-		public Card[] Card{
-			get; init;
-		}
+        public Model.Card[] Card {
+            get; init;
+        }
 
-	}//end Product
+    }//end Product
 
 }//end namespace Model

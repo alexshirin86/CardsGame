@@ -14,23 +14,26 @@ using System.IO;
 
 using Interfaces;
 namespace Model {
-	public class MarketAdmin : IMarket {
+	public class MarketAdmin : IMarket
+    {
 
-		/// 
-		/// <param name="account"></param>
-		public MarketAdmin(IAccount account){
+        /// <summary>
+        ///   <param name="account"></param>
+        /// </summary>
+        public MarketAdmin(IAccount account)
+        {
 
-			Account = account;
-			Console.WriteLine("Магазин для администратора");
-		}
+            Account = account;
+            Console.WriteLine("Магазин для администратора");
+        }
 
-		public IAccount Account{
+        public IAccount Account{
 			get; init;
 		}
 
 		public void ShowProducts(){
 
-			onsole.WriteLine("\nВам доступно:");
+			Console.WriteLine("\nВам доступно:");
 			Console.WriteLine("Игровая валюта");
 			Console.WriteLine($"1. Золото {DB.GoldPrice}");
 			Console.WriteLine($"2. Кристал {DB.CrystalPrice}");
@@ -41,7 +44,7 @@ namespace Model {
 	
 			int i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
 				i++;
 			}
 	
@@ -52,7 +55,7 @@ namespace Model {
 	
 			i = 1;
 			foreach (ProductDB product in products) {
-				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {account.Disscount}.");
+				Console.WriteLine( $"{i}. {product.Name} {product. Price}. Доступная скидка {Account.Disscount}.");
 				i++;
 			}
 	

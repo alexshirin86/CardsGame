@@ -31,7 +31,8 @@ namespace Model {
 		/// <param name="flavour"></param>
 		/// <param name="gold"></param>
 		/// <param name="crystal"></param>
-		public CardDB(string name, string flavour, int gold, int crystal){
+		public CardDB(string name, string flavour, int gold, int crystal)
+        {
 
 			this.name = name;
 			this.flavour = flavour;
@@ -40,34 +41,34 @@ namespace Model {
 	
 		}
 
-		public string Name{
-			get {
-				return name;
-			}
-	
-		}
+        public string Name {
+            get {
+                return name;
+            }
 
-		public string Flavour{
-			get {
-				return flavour;
-			}
-	
-		}
+        }
 
-		public int Gold{
-			get {
-				return gold;
-			}
-	
-		}
+        public string Flavour {
+            get {
+                return flavour;
+            }
 
-		public int Crystal{
-			get {
-				return crystal;
-			}
-	
-		}
+        }
 
-	}//end CardDB
+        public int Gold {
+            get {
+                return gold;
+            }
+
+        }
+
+        public int Crystal {
+            get {
+                return crystal;
+            }
+
+        }
+
+    }//end CardDB
 
 }//end namespace Model

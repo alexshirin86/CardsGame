@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
-//  Fire.cs
-//  Implementation of the Class Fire
-//  Created on:      30-μΰι-2021 4:56:23
+//  Shield.cs
+//  Implementation of the Class Shield
+//  Created on:      09-θών-2021 16:19:08
 //  Original author: Oleksii Shyrin
 ///////////////////////////////////////////////////////////
 
@@ -14,11 +14,11 @@ using System.IO;
 
 using Model;
 namespace Model {
-	public class Fire : Spell {
+	public class Shield : Module {
 
 		/// 
 		/// <param name="id"></param>
-		public Fire(int id):base(id){
+		public Shield(int id) : base(id){
 
 		}
 
@@ -28,11 +28,10 @@ namespace Model {
 		/// <param name="gold"></param>
 		/// <param name="crystal"></param>
 		/// <param name="price"></param>
-		public Fire(string name, string flavour, int gold, int crystal, int price) : base(name, flavour, gold, crystal, price)
-		{
+		public Shield(string name, string flavour, int gold, int crystal, int price) : base(name, flavour, gold, crystal, price){
 
 		}
 
-	}//end Fire
+	}//end Shield
 
 }//end namespace Model

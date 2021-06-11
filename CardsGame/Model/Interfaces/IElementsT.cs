@@ -13,24 +13,22 @@ using System.IO;
 
 
 namespace Interfaces {
-	public interface IElements<T>  {
+	public interface IElements<T>
+    {
+        int Count {
+            get;
+        }
 
-		int Count{
-			get;
-		}
+        IEnumerator<T> GetEnumerator();
+        bool Contains(T item);
 
-		IEnumerator<T> GetEnumerator();
+        /// <summary>
+        ///   <param name="array"></param>
+        ///   <param name="arrayIndex"></param>
+        /// </summary>
+        void CopyTo(T[] array, int arrayIndex = 0);
 
-		/// 
-		/// <param name="item"></param>
-		bool Contains(T item);
-
-		/// 
-		/// <param name="array"></param>
-		/// <param name="arrayIndex"></param>
-		void CopyTo(T[] array, int arrayIndex = 0);
-
-		void Clear();
+        void Clear();
 
 		Type GetTypeContainer();
 

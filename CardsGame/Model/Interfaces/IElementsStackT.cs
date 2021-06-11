@@ -18,11 +18,12 @@ namespace Interfaces {
 
 		T Pop();
 
-		/// 
-		/// <param name="item"></param>
-		void Push(T item);
+        /// <summary>
+        ///   <param name="item"></param>
+        /// </summary>
+        void Push(T item);
 
-		T Peek();
+        T Peek();
 
 		T TryPeek();
 

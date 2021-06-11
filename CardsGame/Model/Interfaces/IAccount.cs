@@ -15,19 +15,21 @@ using Model;
 
 using Interfaces;
 namespace Interfaces {
-	public interface IAccount  {
+	public interface IAccount
+    {
+        string Name {
+            get;
+        }
+        int Disscount {
+            get; init;
+        }
 
-		string Name{
-			get; 
-		}
-
-		EnumTypeAccount TypeAccount{
+        EnumTypeAccount TypeAccount {
 			get;
 		}
-
-		int Id{
-			get; init;
-		}
-	}//end IAccount
+        int Id {
+            get; init;
+        }
+    }//end IAccount
 
 }//end namespace Interfaces
