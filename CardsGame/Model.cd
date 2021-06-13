@@ -10,7 +10,7 @@
   <Class Name="Model.DB" Collapsed="true">
     <Position X="16.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAgAABAAIIAABAAABgAAAAAQgJIABAIAQEQAAIAAAA=</HashCode>
+      <HashCode>ACAgAABAAIIAABAAABggAAAAQgJIABAIAQEQAAIAAAA=</HashCode>
       <FileName>Model\DB.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -54,7 +54,7 @@
   <Class Name="Model.Cost">
     <Position X="6" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Item\Cost\Cost.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -72,52 +72,17 @@
       <FileName>Model\Item\Cost\Gold.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Model.Entity">
-    <Position X="5" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Item\Card\Entity\Entity.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Air">
-    <Position X="7.75" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Item\Card\Spell\Air.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Earth">
-    <Position X="9.5" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Item\Card\Spell\Earth.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Fire">
-    <Position X="11.25" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Item\Card\Spell\Fire.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Spell">
-    <Position X="10.5" Y="7" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Item\Card\Spell\Spell.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Model.Card">
     <Position X="8.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAKQAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Model\Item\Card\Card.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Deck&lt;T&gt;">
     <Position X="12.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAEAAAAAAEABAAAAAAACQAAAAABAAAAAAAAEBQIAA=</HashCode>
+      <HashCode>AABAEAAAAAAEABAAAAAAAKQAAAAABAAAAAAAAEBQIAA=</HashCode>
       <FileName>Model\Item\DeckT.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
