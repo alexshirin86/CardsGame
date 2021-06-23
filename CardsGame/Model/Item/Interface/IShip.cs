@@ -3,13 +3,13 @@ using System;
 namespace Model.Item.Interface {
 	public interface IShip {
 		IModule[] Modules { get; init; }
-		int Atack { get; init; }
-		int HitPoint { get; init; }
-		int BonusHitPoint { get; init; }
+		int Attack { get; init; }
+		int Armor { get; init; }
+		int Shield { get; init; }
 
 		IModule GetModule(int index);
-		void SetModule(int index);
-		bool HasModule(int index);
+		bool SetModule(int index, IModule module);
+		bool? HasModule(int index);
 
 	}
 

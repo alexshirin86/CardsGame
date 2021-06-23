@@ -7,15 +7,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
+using Model.Interfaces;
 
-
-
-using Interfaces;
 namespace Model {
 	public class MarketAdmin : IMarket
-    {
+	{
 
         /// <summary>
         ///   <param name="account"></param>
@@ -27,7 +23,7 @@ namespace Model {
             Console.WriteLine("Магазин для администратора");
         }
 
-        public IAccount Account{
+        public IAccount Account {
 			get; init;
 		}
 

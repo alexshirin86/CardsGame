@@ -1,23 +1,10 @@
-///////////////////////////////////////////////////////////
-//  Game.cs
-//  Implementation of the Class Game
-//  Created on:      31-май-2021 18:12:34
-//  Original author: Aleksey Shirin
-///////////////////////////////////////////////////////////
-
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Interfaces;
+using Model.Interfaces;
 
-
-
-using Model;
 namespace Model {
 	public class Game {
 
 		private IAccount _account;
-		private Room _room;
 		private IMarket _market;
 
         /// <summary>
@@ -84,7 +71,7 @@ namespace Model {
                         _market.ShowProducts();
                         break;
                     case "2":
-
+                        Model.PartyGame.Game game = new Model.PartyGame.Game(_account, _account);
                         break;
                     case "3":
                         Unlogin();
@@ -109,6 +96,6 @@ namespace Model {
 			Exit = false;
 		}
 
-	}//end Game
+	}
 
-}//end namespace Model
+}

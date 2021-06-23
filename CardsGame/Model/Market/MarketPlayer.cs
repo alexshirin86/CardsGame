@@ -1,19 +1,7 @@
-///////////////////////////////////////////////////////////
-//  MarketPlayer.cs
-//  Implementation of the Class MarketPlayer
-//  Created on:      07-θών-2021 14:36:48
-//  Original author: Aleksey Shirin
-///////////////////////////////////////////////////////////
-
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
+using Model.Interfaces;
 
-
-
-using Model;
-using Interfaces;
 namespace Model {
 	public class MarketPlayer : IMarket {
 
@@ -25,9 +13,6 @@ namespace Model {
 			Trash trash = new Trash();
 		}
 
-        /// <summary>
-        ///   <param name="account"></param>
-        /// </summary>
         public MarketPlayer(IAccount account)
         {
 
@@ -64,6 +49,6 @@ namespace Model {
 
 		}
 
-	}//end MarketPlayer
+	}
 
-}//end namespace Model
+}

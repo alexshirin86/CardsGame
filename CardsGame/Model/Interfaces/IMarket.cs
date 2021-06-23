@@ -10,10 +10,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-
-
-using Interfaces;
-namespace Interfaces {
+namespace Model.Interfaces {
 	public interface IMarket  {
 
 		IAccount Account{

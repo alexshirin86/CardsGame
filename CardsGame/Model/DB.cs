@@ -1,26 +1,100 @@
-///////////////////////////////////////////////////////////
-//  DB.cs
-//  Implementation of the Class DB
-//  Created on:      31-май-2021 18:13:12
-//  Original author: Aleksey Shirin
-///////////////////////////////////////////////////////////
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using System.Text.Json;
-using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+using System.Linq;
+using Mindbox.Data.Linq;
+using System.Data;
+using System.Collections.Generic;
 
-
-
-
-
-using Model;
 namespace Model {
 	public class DB {
+        const string ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=usersdb;Integrated Security=True";
+        public const string GDatabase = "GDatabase";
+        public static string DirectoryApp = Directory.GetCurrentDirectory();
+        public static string GDatabaseFile = $"{DirectoryApp}\\GDatabaseDB.mdf";
+        public static void CreateDatabase()
+        {            
+            String str;
+            SqlConnection myConn = new SqlConnection("Server = localhost\\SQLEXPRESS; Trusted_Connection=True; database = master");
 
-		private static Dictionary <string, EnumTypeAccount> _dUsers = new Dictionary<string, EnumTypeAccount> 
+            str = $"CREATE DATABASE {GDatabase} ON PRIMARY " +
+             "(NAME = GDatabase_Data, " +
+             $"FILENAME = '{GDatabaseFile}', " +
+             "SIZE = 10MB, MAXSIZE = 20MB, FILEGROWTH = 10%)";
+
+            SqlCommand myCommand = new SqlCommand(str, myConn);
+            try
+            {
+                myConn.Open();
+                myCommand.ExecuteNonQuery();
+                Console.WriteLine("БД создана.");
+
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+
+        public async static void OpenDatabaseAsync()
+        {
+            // db = new DataContext(ConnectionString);
+            SqlConnection connection = new SqlConnection($"Server = (localdb)\\{GDatabase};Initial Catalog={DirectoryApp}; Trusted_Connection = True; database = master");
+
+
+            try
+            {
+                await connection.OpenAsync();
+                
+                Console.WriteLine("Подключение открыто.");
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                    Console.WriteLine("Подключение закрыто.");
+                }
+                
+            }
+        }
+
+
+        public async static void CreateTableAsync( SqlConnection connection, string table)
+        {
+
+            try
+            {
+                //SqlCommand myCommand = new SqlCommand(str, connection);
+                await connection.OpenAsync();
+                Console.WriteLine("Подключение открыто.");
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                    Console.WriteLine("Подключение закрыто.");
+                }
+
+            }
+        }
+
+
+        private static Dictionary <string, EnumTypeAccount> _dUsers = new Dictionary<string, EnumTypeAccount> 
 		{ 
 		    ["admin"] = EnumTypeAccount.Admin, 
 		    ["player"] =  EnumTypeAccount.Player, 
@@ -43,34 +117,9 @@ namespace Model {
         private static int _disscount = 0;
 
         static DB(){
-			
-			CardDB card1 = new CardDB("карта1", "карта1", 100, 0 );
-			CardDB card2 = new CardDB("карта2", "карта2", 50, 0);
-			CardDB card3 = new CardDB("карта3", "карта3", 200, 0);
-			CardDB card4 = new CardDB("карта4", "карта4", 0, 5);
-			CardDB card5 = new CardDB("карта5", "карта5", 0, 15);
-			CardDB card6 = new CardDB("карта6", "карта6", 0, 3);
-			CardDB card7 = new CardDB("карта7", "карта7", 0, 24);
+                       
 
-			SerializeWriteJson(1, card1);
-			SerializeWriteJson(2, card2);
-			SerializeWriteJson(3, card3);
-			SerializeWriteJson(4, card4);
-			SerializeWriteJson(5, card5);
-			SerializeWriteJson(6, card6);
-			SerializeWriteJson(7, card7);
-
-			_dCards.Add(1, DeserializeWriteJson(1).Result);
-			_dCards.Add(2, DeserializeWriteJson(2).Result);
-			_dCards.Add(3, DeserializeWriteJson(3).Result);
-			_dCards.Add(4, DeserializeWriteJson(4).Result);
-			_dCards.Add(5, DeserializeWriteJson(5).Result);
-			_dCards.Add(6, DeserializeWriteJson(6).Result);
-			_dCards.Add(7, DeserializeWriteJson(7).Result);
-
-			Console.WriteLine(_dCards.ToString());
-	
-			ProductDB product1 = new ProductDB("Продукт1", 0, 5, 50);
+            ProductDB product1 = new ProductDB("Продукт1", 0, 5, 50);
 			ProductDB product2 = new ProductDB("Продукт2", 0, 15, 500);
 			ProductDB product3 = new ProductDB("Продукт2", 0, 3, 100);
 			ProductDB product4 = new ProductDB("Продукт2", 0, 24, 150);
@@ -81,55 +130,27 @@ namespace Model {
 			_productMarketVip.Add(product4);
 		}
 
-		async static void SerializeWriteJson(int id, CardDB card)
-        {
-			using (FileStream fs = new FileStream($"card{id}.json", FileMode.OpenOrCreate))
-			{
-				await JsonSerializer.SerializeAsync<CardDB>(fs, card);				
-			}
-		}
-
-		async static Task<CardDB> DeserializeWriteJson(int id)
-        {
-			CardDB card;
-			using (FileStream fs = new FileStream($"user{id}.json", FileMode.OpenOrCreate))
-			{
-				card = await JsonSerializer.DeserializeAsync<CardDB>(fs);				
-			}
-			return card;
-		}
-
-        /// <summary>
-        ///   <param name="name"></param>
-        ///   <param name="pass"></param>
-        /// </summary>
+		
         public static bool HasUser(string name, string pass)
         {
-
             return _dUsers.ContainsKey(name);
         }
 
-        /// <summary>
-        ///   <param name="name"></param>
-        /// </summary>
+      
         public static int GetId(string name)
         {
 
             return 0;
         }
 
-        /// <summary>
-        ///   <param name="name"></param>
-        /// </summary>
+       
         public static EnumTypeAccount GetTypeAccount(string name)
         {
 
             return _dUsers[name];
         }
 
-        /// <summary>
-        ///   <param name="name"></param>
-        /// </summary>
+       
         public static bool NewAccount(string name)
         {
 
@@ -137,9 +158,7 @@ namespace Model {
             return _dUsers.ContainsKey(name);
         }
 
-        /// <summary>
-        ///   <param name="id"></param>
-        /// </summary>
+       
         public static CardDB GetCard(int id)
         {
 
@@ -174,34 +193,27 @@ namespace Model {
             }
         }
 
-        /// <summary>
-        ///   <param name="id"></param>
-        /// </summary>
+
         public static int GetMoney(int id)
         {
 
             return _money;
         }
 
-        /// <summary>
-        ///   <param name="id"></param>
-        /// </summary>
+       
         public static int GetDisscount(int id)
         {
 
             return _disscount;
         }
 
-        /// <summary>
-        ///   <param name="id"></param>
-        ///   <param name="money"></param>
-        /// </summary>
+       
         public static void SetMoney(int id, int money)
         {
 
             _money += money;
         }
 
-    }//end DB
+    }
 
-}//end namespace Model
+}

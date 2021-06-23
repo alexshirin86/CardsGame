@@ -1,26 +1,50 @@
 using System;
+using Model.Item.Interface;
 
-namespace CardsGame.Model.Items {
-	public class MediumShip : Card , CardsGame.Model.Interfaces.IShip  {
-		public CardsGame.Model.Interfaces.IModule[] Modules { get; init; }
-		public int Id { get; }
-		public string Name { get; init; }
-		public string Description { get; }
-		public string ImagePath { get; init; }
-		public int Atack { get; init; }
-		public int HitPoint { get; init; }
-		public int BonusHitPoint { get; init; }
+namespace Model.Item {
+	public class MediumShip : Card , IShip  {
+		public Model.Item.Interface.IModule[] Modules { get; init; }
+		public override int Id { get; init; }
+		public override string Name { get; init; }
+		public override string ImagePath { get; init; }
+		public override string Description { get; init; }
+		public int Attack { get; init; }
+		public int Armor { get; init; }
+		public int Shield { get; init; }
+		public override int Cost { get; init; }
 
-		public bool HasModule(int index) {
-			throw new System.NotImplementedException("Not implemented");
+		public bool? HasModule(int index) {
+			try
+			{
+				return Modules[index] != null ? true : false;
+			}
+			catch (IndexOutOfRangeException e)
+			{
+				return null;
+			}
 		}
-		public void SetModule(int index) {
-			throw new System.NotImplementedException("Not implemented");
+		public bool SetModule(int index, Model.Item.Interface.IModule module) {
+			try
+			{
+				Modules[index] = module;
+				return true;
+			}
+			catch (IndexOutOfRangeException e)
+			{
+				return false;
+			}
 		}
-		public CardsGame.Model.Interfaces.IModule GetModule(int index) {
-			throw new System.NotImplementedException("Not implemented");
+		public Model.Item.Interface.IModule GetModule(int index) {
+			try
+			{
+				return Modules[index];
+			}
+			catch (IndexOutOfRangeException e)
+			{
+				return null;
+			}
 		}
-		public MediumShip(int id) {
+		public MediumShip(int id): base(id) {
 			Modules = new IModule[2];
 		}
 

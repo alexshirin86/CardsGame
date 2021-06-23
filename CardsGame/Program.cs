@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Model;
 
 
@@ -8,6 +9,13 @@ namespace CardsGame
     {
         static void Main(string[] args)
         {
+            
+            if (!File.Exists(DB.GDatabaseFile))
+            {
+                DB.CreateDatabase();
+            }            
+            DB.OpenDatabaseAsync();
+
             Game game = new Game();
             Console.WriteLine("Добро пожаловать");
 

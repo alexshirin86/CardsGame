@@ -1,26 +1,11 @@
-///////////////////////////////////////////////////////////
-//  MarketVip.cs
-//  Implementation of the Class MarketVip
-//  Created on:      07-θών-2021 14:36:48
-//  Original author: Aleksey Shirin
-///////////////////////////////////////////////////////////
-
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
+using Model.Interfaces;
 
-
-
-using Interfaces;
-using Model;
 namespace Model {
 	public class MarketVip : MarketPlayer
     {
 
-        /// <summary>
-        ///   <param name="account"></param>
-        /// </summary>
         public MarketVip(IAccount account)
         {
 
@@ -44,6 +29,6 @@ namespace Model {
 			Console.WriteLine("\n");
 		}
 
-	}//end MarketVip
+	}
 
-}//end namespace Model
+}
