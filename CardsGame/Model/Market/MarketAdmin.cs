@@ -1,9 +1,3 @@
-///////////////////////////////////////////////////////////
-//  MarketAdmin.cs
-//  Implementation of the Class MarketAdmin
-//  Created on:      07-θών-2021 14:36:48
-//  Original author: Aleksey Shirin
-///////////////////////////////////////////////////////////
 
 using System;
 using System.Collections.Generic;
@@ -13,9 +7,6 @@ namespace Model {
 	public class MarketAdmin : IMarket
 	{
 
-        /// <summary>
-        ///   <param name="account"></param>
-        /// </summary>
         public MarketAdmin(IAccount account)
         {
 
@@ -58,6 +49,5 @@ namespace Model {
 			Console.WriteLine("\n");
 		}
 
-	}//end MarketAdmin
-
-}//end namespace Model
+	}
+}

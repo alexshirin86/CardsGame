@@ -7,10 +7,7 @@ namespace Model {
 		private IAccount _account;
 		private IMarket _market;
 
-        /// <summary>
-        ///   <param name="name"></param>
-        ///   <param name="pass"></param>
-        /// </summary>
+
         public bool Login(string name, string pass)
         {
 
@@ -22,19 +19,14 @@ namespace Model {
             return false;
         }
 
-        /// <summary>
-        ///   <param name="name"></param>
-        ///   <param name="pass"></param>
-        /// </summary>
+
         public bool NewAccount(string name, string pass)
         {
 
             return DB.NewAccount(name) ? Login(name, pass) : false;
         }
 
-        /// <summary>
-        ///   <param name="name"></param>
-        /// </summary>
+
         private void Launch(string name)
         {
 
