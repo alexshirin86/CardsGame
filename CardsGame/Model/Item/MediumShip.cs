@@ -1,16 +1,26 @@
 using System;
 using Model.Item.Interface;
+using System.Data.Linq.Mapping;
 
 namespace Model.Item {
+	[Table(Name = "MediumShip")]
 	public class MediumShip : Card , IShip  {
-		public Model.Item.Interface.IModule[] Modules { get; init; }
+		public IModule[] Modules { get; init; }		
+		[Column(IsPrimaryKey = true)]
 		public override int Id { get; init; }
+		[Column]
 		public override string Name { get; init; }
+		[Column]
 		public override string ImagePath { get; init; }
+		[Column]
 		public override string Description { get; init; }
+		[Column]
 		public int Attack { get; init; }
+		[Column]
 		public int Armor { get; init; }
+		[Column]
 		public int Shield { get; init; }
+		[Column]
 		public override int Cost { get; init; }
 
 		public bool? HasModule(int index) {

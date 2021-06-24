@@ -3,6 +3,7 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+
 namespace Model.PartyGame {
 	[Serializable]
 	public class Game {
@@ -12,6 +13,7 @@ namespace Model.PartyGame {
 		public Game(Interfaces.IAccount accountOne, Interfaces.IAccount accountTwo) {
 			PlayerOne = new Player(accountOne);
 			PlayerTwo = new Player(accountTwo);
+			
 		}
 
 		public void NextPlayerMove(Player player) {

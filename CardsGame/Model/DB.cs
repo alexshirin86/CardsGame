@@ -3,13 +3,13 @@ using System;
 using System.IO;
 using Microsoft.Data.SqlClient;
 using System.Linq;
-using Mindbox.Data.Linq;
+using System.Data.Linq;
 using System.Data;
 using System.Collections.Generic;
 
 namespace Model {
 	public class DB {
-        const string ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=usersdb;Integrated Security=True";
+        public static string ConnectionString = $@"Data Source=.\SQLEXPRESS;Initial Catalog={GDatabase};Integrated Security=True";
         public const string GDatabase = "GDatabase";
         public static string DirectoryApp = Directory.GetCurrentDirectory();
         public static string GDatabaseFile = $"{DirectoryApp}\\GDatabaseDB.mdf";
@@ -43,13 +43,16 @@ namespace Model {
 
         public async static void OpenDatabaseAsync()
         {
-            // db = new DataContext(ConnectionString);
-            SqlConnection connection = new SqlConnection($"Server = (localdb)\\{GDatabase};Initial Catalog={DirectoryApp}; Trusted_Connection = True; database = master");
+            DataContext db = new DataContext(ConnectionString);
+            db.
+            //string strConect = "Data Source = localhost\\SQLEXPRESS;" +
+            //"AttachDbFilename = C:\Northwind.mdf;";
+            //SqlConnection connection = new SqlConnection($"Server = .\\SQLEXPRESS; AttachDbFilename = {DirectoryApp}\\GDatabaseDB.mdf; Trusted_Connection = true");
 
 
             try
             {
-                await connection.OpenAsync();
+                //await connection.OpenAsync();
                 
                 Console.WriteLine("Подключение открыто.");
             }
@@ -59,11 +62,11 @@ namespace Model {
             }
             finally
             {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                    Console.WriteLine("Подключение закрыто.");
-                }
+                //if (connection.State == ConnectionState.Open)
+               // {
+               //     connection.Close();
+               //     Console.WriteLine("Подключение закрыто.");
+               // }
                 
             }
         }

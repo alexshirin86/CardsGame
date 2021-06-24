@@ -8,9 +8,6 @@ namespace Model.Item {
 		public override abstract string Name { get; init; }
 		public abstract int Cost { get; init; }
 
-		/// <summary>
-		/// <param name="id"></param>
-		/// </summary>
 		public Card(int id) {
 			Id = id;
 			CardDB card = DB.GetCard( id );

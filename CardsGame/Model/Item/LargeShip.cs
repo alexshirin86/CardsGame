@@ -1,15 +1,27 @@
 using System;
 using Model.Item.Interface;
+using System.Data.Linq.Mapping;
 
 namespace Model.Item {
-	public abstract class LargeShip : Card , IShip  {
+
+	[Table(Name = "LargeShip")]
+	public class LargeShip : Card , IShip  {
 		public IModule[] Modules { get; init; }
+		[Column]
+		public override int Cost { get; init; }
+		[Column(IsPrimaryKey = true)]
 		public override int Id { get; init; }
+		[Column]
 		public override string Name { get; init; }
+		[Column]
 		public override string ImagePath { get; init; }
-		public override abstract string Description { get; init; }
+		[Column]
+		public override string Description { get; init; }
+		[Column]
 		public int Attack { get; init; }
+		[Column]
 		public int Armor { get; init; }
+		[Column]
 		public int Shield { get; init; }
 
 		public IModule GetModule(int index) {
