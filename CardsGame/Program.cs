@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Model;
+using Model.Item;
 
 
 namespace CardsGame
@@ -18,7 +19,17 @@ namespace CardsGame
             DB.CreateDatabase();
             DB.OpenDatabase();
 
+            //LargeShip l2 = DB.DataDB.GetTable<LargeShip>();
+
+            LargeShip l1 = new LargeShip(1,2,3,4, "LargeShip 1", "LargeShip.jpg","LargeShip");
+
+
+
             Game game = new Game();
+
+
+
+
             Console.WriteLine("Добро пожаловать");
 
             Console.WriteLine("Ведите одно из имен ниже.");

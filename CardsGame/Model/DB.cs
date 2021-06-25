@@ -9,17 +9,31 @@ using System.Collections.Generic;
 using Model.Item;
 
 namespace Model {
-	public class DB {
-        public static string ConnectionString = $@"Data Source=.\SQLEXPRESS;Initial Catalog={GDatabase};Integrated Security=True";
+    public class DataBase : DataContext
+    {
+        public Table<LargeShip> LargeShipTable;
+        public Table<LightShip> LightShipTable;
+        public Table<MediumShip> MediumShipTable;
+        public Table<Product> ProductTable;
+
+        public DataBase(string connection) : base(connection) { }
+
+
+    }
+    public static class DB {
+
         public const string GDatabase = "GDatabase";
         public static string DirectoryApp = Directory.GetCurrentDirectory();
         public static string GDatabaseFile = $"{DirectoryApp}\\GDatabaseDB.mdf";
+        public static string ConnectionString = $"Server = localhost\\SQLEXPRESS; Trusted_Connection=True; database = {GDatabase}";
 
         public static LargeShip LargeShipTable { get; private set; }
         public static LightShip LightShipTable { get; private set; }
         public static MediumShip MediumShipTable { get; private set; }
 
         public static Product ProductTable { get; private set; }
+
+        public static DataContext DataDB;
 
 
         public static bool DropDatabase()
@@ -58,10 +72,10 @@ namespace Model {
             }
         }
 
-            public static void CreateDatabase()
+        public static void CreateDatabase()
         {
             
-            SqlConnection connection = new SqlConnection("Server = localhost\\SQLEXPRESS; Trusted_Connection=True; database = master");
+            SqlConnection connection = new SqlConnection($"Server = localhost\\SQLEXPRESS; Trusted_Connection=True; database = master");
 
             try
             {
@@ -100,19 +114,15 @@ namespace Model {
                 };
 
                 command.CommandText = QueryCreatTable("LargeShip", dictColumns);
-                Console.WriteLine(command.CommandText);
                 command.ExecuteNonQuery();
 
                 command.CommandText = QueryCreatTable("LightShip", dictColumns);
-                Console.WriteLine(command.CommandText);
                 command.ExecuteNonQuery();
 
                 command.CommandText = QueryCreatTable("MediumShip", dictColumns);
-                Console.WriteLine(command.CommandText);
                 command.ExecuteNonQuery();
 
                 command.CommandText = QueryCreatTable("Product", dictColumns);
-                Console.WriteLine(command.CommandText);
                 Console.WriteLine(command.ExecuteNonQuery());
 
                 Console.WriteLine("БД создана.");
@@ -153,26 +163,63 @@ namespace Model {
             return str;
         }
 
-        public async static void OpenDatabase()
+        public static void OpenDatabase()
         {
-            DataContext db = new DataContext(ConnectionString);
-            Table<LargeShip> LargeShipTable = db.GetTable<LargeShip>();
-            Table<LightShip> LightShipTable = db.GetTable<LightShip>();
-            Table<MediumShip> MediumShipTable = db.GetTable<MediumShip>();
-            Table<Product> ProductTable = db.GetTable<Product>();
+            DataDB = new DataContext(ConnectionString);
+            Table<LargeShip> LargeShipTable = DataDB.GetTable<LargeShip>();
+            Table<LightShip> LightShipTable = DataDB.GetTable<LightShip>();
+            Table<MediumShip> MediumShipTable = DataDB.GetTable<MediumShip>();
+            Table<Product> ProductTable = DataDB.GetTable<Product>();
 
 
-            try {
-                foreach (var ship in LargeShipTable.GetEnumerator())
-                {
-                    Console.WriteLine("{0} \t{1} \t{2}", ship.Id, ship.Name, ship.Attack);
-                }
-            }
-            catch ( ArgumentNullException e)
+            var LargeShipQuery =
+                from ship in LargeShipTable                
+                select ship;
+
+            int i = 0;
+            foreach (LargeShip ship in LargeShipQuery)
             {
-                Console.WriteLine("Таблица не содержит данных.");
+                Console.WriteLine("{0} \t{1} \t{2}", ship.Id, ship.Name, ship.Attack);
+                ship.Name = $"LargeShip_{i}";
+                ship.Attack = i;
+                i++;
             }
-                        
+
+            var LightShipQuery =
+                from ship in LightShipTable
+                select ship;
+
+            i = 0;
+            foreach (LightShip ship in LightShipQuery)
+            {
+                Console.WriteLine("{0} \t{1} \t{2}", ship.Id, ship.Name, ship.Attack);
+                ship.Name = $"LargeShip_{i}";
+                ship.Attack = i;
+                i++;
+            }
+
+            var MediumShipQuery =
+                from ship in MediumShipTable
+                select ship;
+
+            i = 0;
+            foreach (MediumShip ship in MediumShipQuery)
+            {
+                Console.WriteLine("{0} \t{1} \t{2}", ship.Id, ship.Name, ship.Attack);
+
+                ship.Name = $"MediumShip_{i}";
+                ship.Attack = i;
+                i++;
+            }
+
+            DataDB.SubmitChanges();
+
+            LargeShip l1 = new LargeShip(1, 2, 3, 4, "LargeShip 1", "LargeShip.jpg", "LargeShip");
+
+            DataDB.GetTable<LargeShip>().InsertOnSubmit(l1);
+            DataDB.SubmitChanges();
+
+
         }
 
 
@@ -216,6 +263,8 @@ namespace Model {
 		    ["vip"] = EnumTypeAccount.Vip, 
 		    ["new"] = EnumTypeAccount.Player
 		};
+        
+        
         private static int _goldPrice = 50;
         private static List <ProductDB> _productMarketPlayer = new List<ProductDB>();
 		private static Dictionary <int, CardDB> _dCards = new Dictionary<int, CardDB> ();

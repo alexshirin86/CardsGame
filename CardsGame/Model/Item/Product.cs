@@ -14,7 +14,7 @@ namespace Model.Item {
 		private Card[] card;
 		[Column]
 		public override string ImagePath { get; init; }
-		[Column(IsPrimaryKey = true)]
+		[Column(IsPrimaryKey = true, IsDbGenerated = true)]
 		public override int Id { get; init; }
 
         Product(int id)
