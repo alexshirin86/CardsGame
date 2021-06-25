@@ -5,9 +5,9 @@ namespace Model.Item {
 	[Table(Name = "Product")]
 	public class Product : Element  {
 		[Column]
-		private int gold;
+		public int GoldCount { get; init; }
 		[Column]
-		private int crystal;
+		private int CrystalCount { get; init; }
 		public int Price { get; }
 		[Column]
 		public override string Name { get; init; }

@@ -10,11 +10,13 @@ namespace CardsGame
         static void Main(string[] args)
         {
             
-            if (!File.Exists(DB.GDatabaseFile))
+            if (File.Exists(DB.GDatabaseFile))
             {
-                DB.CreateDatabase();
-            }            
-            DB.OpenDatabaseAsync();
+                DB.DropDatabase();
+                Console.WriteLine("БД существует. Удаление.");
+            }
+            DB.CreateDatabase();
+            DB.OpenDatabase();
 
             Game game = new Game();
             Console.WriteLine("Добро пожаловать");

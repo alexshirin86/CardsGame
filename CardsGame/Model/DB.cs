@@ -6,6 +6,7 @@ using System.Linq;
 using System.Data.Linq;
 using System.Data;
 using System.Collections.Generic;
+using Model.Item;
 
 namespace Model {
 	public class DB {
@@ -13,21 +14,107 @@ namespace Model {
         public const string GDatabase = "GDatabase";
         public static string DirectoryApp = Directory.GetCurrentDirectory();
         public static string GDatabaseFile = $"{DirectoryApp}\\GDatabaseDB.mdf";
-        public static void CreateDatabase()
-        {            
-            String str;
-            SqlConnection myConn = new SqlConnection("Server = localhost\\SQLEXPRESS; Trusted_Connection=True; database = master");
 
-            str = $"CREATE DATABASE {GDatabase} ON PRIMARY " +
-             "(NAME = GDatabase_Data, " +
-             $"FILENAME = '{GDatabaseFile}', " +
-             "SIZE = 10MB, MAXSIZE = 20MB, FILEGROWTH = 10%)";
+        public static LargeShip LargeShipTable { get; private set; }
+        public static LightShip LightShipTable { get; private set; }
+        public static MediumShip MediumShipTable { get; private set; }
 
-            SqlCommand myCommand = new SqlCommand(str, myConn);
+        public static Product ProductTable { get; private set; }
+
+
+        public static bool DropDatabase()
+        {
+            SqlConnection connection = new SqlConnection($"Server = localhost\\SQLEXPRESS; Trusted_Connection=True; database = master");
+
             try
             {
-                myConn.Open();
-                myCommand.ExecuteNonQuery();
+                connection.Open();
+
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+
+                command.CommandText = $"DROP DATABASE {GDatabase}";
+
+                command.ExecuteNonQuery();
+
+                command.CommandText = $"SELECT COUNT(*) FROM master.dbo.sysdatabases WHERE name = '{GDatabase}'";
+                Int32 count = (Int32) command.ExecuteScalar();
+
+                return count > 0 ? true : false;             
+
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {                    
+                    connection.Close();
+                }
+
+            }
+        }
+
+            public static void CreateDatabase()
+        {
+            
+            SqlConnection connection = new SqlConnection("Server = localhost\\SQLEXPRESS; Trusted_Connection=True; database = master");
+
+            try
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+
+                command.CommandText = $"CREATE DATABASE {GDatabase} ON PRIMARY " +
+                "(NAME = GDatabase_Data, " +
+                $"FILENAME = '{GDatabaseFile}', " +
+                "SIZE = 10MB, MAXSIZE = 20MB, FILEGROWTH = 10%)";
+
+                command.ExecuteNonQuery();
+
+                Dictionary<string, string> dictColumns = new Dictionary<string, string>
+                {
+                    ["Attack"] = "INT",
+                    ["Armor"] = "INT",
+                    ["Shield"] = "INT",
+                    ["Cost"] = "INT",
+                    ["Name"] = "NVARCHAR(100)",
+                    ["Description"] = "NVARCHAR(100)",
+                    ["ImagePath"] = "NVARCHAR(100)",
+                };
+
+                Dictionary<string, string> dictColumnsProduct = new Dictionary<string, string>
+                {
+                    ["Attack"] = "INT",
+                    ["Armor"] = "INT",
+                    ["Shield"] = "INT",
+                    ["Cost"] = "INT",
+                    ["Name"] = "NVARCHAR(100)",
+                    ["Description"] = "NVARCHAR(100)",
+                    ["ImagePath"] = "NVARCHAR(100)",
+                };
+
+                command.CommandText = QueryCreatTable("LargeShip", dictColumns);
+                Console.WriteLine(command.CommandText);
+                command.ExecuteNonQuery();
+
+                command.CommandText = QueryCreatTable("LightShip", dictColumns);
+                Console.WriteLine(command.CommandText);
+                command.ExecuteNonQuery();
+
+                command.CommandText = QueryCreatTable("MediumShip", dictColumns);
+                Console.WriteLine(command.CommandText);
+                command.ExecuteNonQuery();
+
+                command.CommandText = QueryCreatTable("Product", dictColumns);
+                Console.WriteLine(command.CommandText);
+                Console.WriteLine(command.ExecuteNonQuery());
+
                 Console.WriteLine("БД создана.");
 
             }
@@ -37,38 +124,55 @@ namespace Model {
             }
             finally
             {
-                myConn.Close();
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+                
             }
         }
 
-        public async static void OpenDatabaseAsync()
+        public static string QueryCreatTable(string nameT, Dictionary<string, string> dictColumns)
+        {
+            string str = $"CREATE TABLE {nameT} (Id INT PRIMARY KEY IDENTITY, ";
+
+            int i = 1;
+            foreach (var column in dictColumns)
+            {
+                str += $"{column.Key} {column.Value} NOT NULL";
+
+                if (i != dictColumns.Count)
+                {
+                    str += ", ";
+                } else
+                {
+                    str += ")";
+                }
+                i++;
+            }
+            return str;
+        }
+
+        public async static void OpenDatabase()
         {
             DataContext db = new DataContext(ConnectionString);
-            db.
-            //string strConect = "Data Source = localhost\\SQLEXPRESS;" +
-            //"AttachDbFilename = C:\Northwind.mdf;";
-            //SqlConnection connection = new SqlConnection($"Server = .\\SQLEXPRESS; AttachDbFilename = {DirectoryApp}\\GDatabaseDB.mdf; Trusted_Connection = true");
+            Table<LargeShip> LargeShipTable = db.GetTable<LargeShip>();
+            Table<LightShip> LightShipTable = db.GetTable<LightShip>();
+            Table<MediumShip> MediumShipTable = db.GetTable<MediumShip>();
+            Table<Product> ProductTable = db.GetTable<Product>();
 
 
-            try
-            {
-                //await connection.OpenAsync();
-                
-                Console.WriteLine("Подключение открыто.");
+            try {
+                foreach (var ship in LargeShipTable.GetEnumerator())
+                {
+                    Console.WriteLine("{0} \t{1} \t{2}", ship.Id, ship.Name, ship.Attack);
+                }
             }
-            catch (System.Exception ex)
+            catch ( ArgumentNullException e)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Таблица не содержит данных.");
             }
-            finally
-            {
-                //if (connection.State == ConnectionState.Open)
-               // {
-               //     connection.Close();
-               //     Console.WriteLine("Подключение закрыто.");
-               // }
-                
-            }
+                        
         }
 
 
@@ -118,6 +222,8 @@ namespace Model {
 		private static List <ProductDB> _productMarketVip = new List<ProductDB>();
         private static int _money = 0;
         private static int _disscount = 0;
+
+        
 
         static DB(){
                        
